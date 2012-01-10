@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, GallaryActivity!</string>
+    <string name="app_name">RoboBinding Widget Gallery</string>
+    <string name="widget">Widget:</string>
+    <string name="pet">Pet</string>
+    <string name="its_favourite">Its favourite</string>
+
+</resources>

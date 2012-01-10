@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://robobinding.org/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/widget" />
+    
+	<Spinner 
+    	android:layout_width="fill_parent"
+  		android:layout_height="wrap_content"
+  		bind:itemLayout="@android:layout/simple_spinner_item"
+  		bind:itemMapping="[text1.text:{name}]"
+  		bind:dropdownLayout="@android:layout/simple_spinner_dropdown_item"
+  		bind:dropdownMapping="[text1.text:{name}]"
+  		bind:source="{widgets}"
+  		bind:selectedItemPosition="${selectedWidgetIndex}"/>
+	
+	<Button 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    bind:text="{selectedWidgetDescription}"
+	    bind:onClick="tryWidget"/>
+</LinearLayout>
