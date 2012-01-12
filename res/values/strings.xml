@@ -4,7 +4,8 @@
     <string name="hello">Hello World, GallaryActivity!</string>
     <string name="app_name">RoboBinding Widget Gallery</string>
     <string name="widget">Widget:</string>
-    <string name="pet">Pet</string>
-    <string name="its_favourite">Its favourite</string>
+    <string name="features">Features:</string>
+    <string name="sample_strings_header">Sample strings header</string>
+    <string name="selected_items">Selected items:</string>
 
 </resources>

@@ -48,7 +48,7 @@ public class GalleryPresentationModel
 		selectedWidgetIndex = 0;
 	}
 
-	@ItemPresentationModel(value = WidgetRow.class)
+	@ItemPresentationModel(value = NameItemPresentationModel.class)
 	public List<Widget> getWidgets()
 	{
 		return Widget.widgets();

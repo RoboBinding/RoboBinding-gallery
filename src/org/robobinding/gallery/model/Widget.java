@@ -26,7 +26,7 @@ import org.robobinding.internal.com_google_common.collect.Lists;
  * @version $Revision: 1.0 $
  * @author Cheng Wei
  */
-public enum Widget
+public enum Widget implements HasName
 {
 	LIST_VIEW("ListView");
 
@@ -37,6 +37,7 @@ public enum Widget
 		this.name = name;
 	}
 
+	@Override
 	public String getName()
 	{
 		return name;

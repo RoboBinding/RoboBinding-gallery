@@ -8,23 +8,85 @@
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        bind:footerLayout="@layout/pet_footer"
-        bind:footerSource="{petFooter}"
-        bind:footerVisibility="{petFooterIntegerVisibility}"
-        bind:headerLayout="@layout/pet_header"
-        bind:headerVisibility="{petHeaderBooleanVisibility}"
-        bind:itemLayout="@layout/pet_row"
-        bind:source="{pets}"/>
+        bind:choiceMode="{choiceMode}"
+        bind:checkedItemPosition="${checkedItemPosition}"
+        bind:checkedItemPositions="${checkedItemPositions}"
+        bind:footerLayout="@layout/sample_strings_footer"
+        bind:footerPresentationModel="{footer}"
+        bind:footerVisibility="{footerIntegerVisibility}"
+        bind:headerLayout="@layout/sample_strings_header"
+        bind:headerVisibility="{headerBooleanVisibility}"
+        bind:itemLayout="{itemLayout}"
+        bind:itemMapping="[text1.text:{value}]"
+        bind:source="{strings}"/>
 
+    <TextView 
+        android:text="@string/features"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    
+    <Spinner 
+    	android:layout_width="fill_parent"
+  		android:layout_height="wrap_content"
+  		android:prompt="@string/features"
+  		bind:itemLayout="@android:layout/simple_spinner_item"
+  		bind:itemMapping="[text1.text:{name}]"
+  		bind:dropdownLayout="@android:layout/simple_spinner_dropdown_item"
+  		bind:dropdownMapping="[text1.text:{name}]"
+  		bind:source="{features}"
+  		bind:selectedItemPosition="${selectedFeatureIndex}"/>
+    
+    <TextView 
+       	bind:text="{selectedFeatureName}"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         bind:text="{headerBooleanVisibilityDescription}" 
-        bind:onClick="changeHeaderVisibility"/>
+        bind:onClick="changeHeaderVisibility"
+        bind:visibility="{headerVisibilityFeatureSelected}"/>
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         bind:text="{footerIntegerVisibilityDescription}" 
-        bind:onClick="changeFooterVisibility"/>
+        bind:onClick="changeFooterVisibility"
+        bind:visibility="{footerVisibilityFeatureSelected}"/>
+    
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        bind:visibility="{choiceModeFeatureSelected}">
+        
+        <Spinner 
+    		android:layout_width="fill_parent"
+  			android:layout_height="wrap_content"
+  			bind:itemLayout="@android:layout/simple_spinner_item"
+  			bind:itemMapping="[text1.text:{name}]"
+  			bind:dropdownLayout="@android:layout/simple_spinner_dropdown_item"
+  			bind:dropdownMapping="[text1.text:{name}]"
+  			bind:source="{choiceModes}"
+  			bind:selectedItemPosition="${selectedChoiceModeIndex}"/>
+        
+        <LinearLayout 
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            
+	        <TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/selected_items"/>
+	        
+	        <TextView 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            bind:text="{descriptionOfSelectedItems}"/>
+        
+        </LinearLayout>
+        
+    </LinearLayout>
 </LinearLayout>
