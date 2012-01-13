@@ -36,7 +36,7 @@ public class GalleryActivity extends Activity
 		super.onCreate(savedInstanceState);
 		
 		
-		GalleryPresentationModel presentationModel = new GalleryPresentationModel();
+		GalleryPresentationModel presentationModel = new GalleryPresentationModel(this);
 		Binder.bind(this, R.layout.gallery_activity, presentationModel);
 	}
 }

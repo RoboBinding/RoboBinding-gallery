@@ -60,7 +60,7 @@ public enum StringItemLayout implements HasName
 		return Collections.unmodifiableList(itemLayouts);
 	}
 
-	public static StringItemLayout indexOf(int index)
+	public static StringItemLayout valueOf(int index)
 	{
 		return itemLayouts.get(index);
 	}

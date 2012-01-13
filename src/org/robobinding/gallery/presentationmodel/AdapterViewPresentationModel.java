@@ -22,8 +22,8 @@ import org.robobinding.ItemPresentationModel;
 import org.robobinding.gallery.invocationlog.PublicMethodInvocationLog;
 import org.robobinding.gallery.model.adapterview.AdapterViewFeature;
 import org.robobinding.gallery.model.adapterview.SampleStringType;
+import org.robobinding.gallery.model.adapterview.SampleStrings;
 import org.robobinding.gallery.model.adapterview.StringItemLayout;
-import org.robobinding.internal.com_google_common.collect.Lists;
 import org.robobinding.presentationmodelaspects.PresentationModel;
 
 /**
@@ -47,8 +47,6 @@ public class AdapterViewPresentationModel implements PublicMethodInvocationLog
 	
 	private int selectedItemLayoutIndex;
 	
-	private List<String> strings;
-	
 	public AdapterViewPresentationModel()
 	{
 		selectedFeatureIndex = 0;
@@ -56,22 +54,6 @@ public class AdapterViewPresentationModel implements PublicMethodInvocationLog
 		selectedSourceIndex = 0;
 		
 		selectedItemLayoutIndex = 0;
-		
-		strings = Lists.newArrayList();
-		updateSource();
-	}
-	
-	@ItemPresentationModel(value=StringItemPresentationModel.class)
-	@DependsOnStateOf(SELECTED_SOURCE_INDEX)
-	public List<String> getStrings()
-	{
-		return strings;
-	}
-	
-	@DependsOnStateOf(SELECTED_ITEM_LAYOUT_INDEX)
-	public int getItemLayout()
-	{
-		return getSelectedItemLayout().getLayoutResourceId();
 	}
 	
 	@ItemPresentationModel(value=NameItemPresentationModel.class)
@@ -79,21 +61,28 @@ public class AdapterViewPresentationModel implements PublicMethodInvocationLog
 	{
 		return AdapterViewFeature.features();
 	}
-	
+
 	public int getSelectedFeatureIndex()
 	{
 		return selectedFeatureIndex;
 	}
-	
+
 	public void setSelectedFeatureIndex(int selectedFeatureIndex)
 	{
 		this.selectedFeatureIndex = selectedFeatureIndex;
 	}
-	
+
 	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
-	public String getSelectedFeatureName()
+	public boolean isDynamicSourceFeatureSelected()
 	{
-		return getSelectedFeature().getName()+":";
+		return AdapterViewFeature.DYNAMIC_SOURCE.equals(getSelectedFeature());
+	}
+
+	@ItemPresentationModel(value=StringItemPresentationModel.class)
+	@DependsOnStateOf(SELECTED_SOURCE_INDEX)
+	public List<String> getDynamicStrings()
+	{
+		return getSelectedSource().getSample();
 	}
 	
 	@ItemPresentationModel(value=NameItemPresentationModel.class)
@@ -102,12 +91,6 @@ public class AdapterViewPresentationModel implements PublicMethodInvocationLog
 		return SampleStringType.types();
 	}
 
-	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
-	public boolean isSourceFeatureSelected()
-	{
-		return AdapterViewFeature.SOURCE.equals(getSelectedFeature());
-	}
-	
 	public int getSelectedSourceIndex()
 	{
 		return selectedSourceIndex;
@@ -116,24 +99,29 @@ public class AdapterViewPresentationModel implements PublicMethodInvocationLog
 	public void setSelectedSourceIndex(int selectedSourceIndex)
 	{
 		this.selectedSourceIndex = selectedSourceIndex;
-		updateSource();
-	}
-
-	private void updateSource()
-	{
-		strings.clear();
-		strings.addAll(getSelectedSource().getSample());
 	}
 
 	private SampleStringType getSelectedSource()
 	{
-		return SampleStringType.indexOf(selectedSourceIndex);
+		return SampleStringType.valueOf(selectedSourceIndex);
 	}
 
 	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
-	public boolean isItemLayoutFeatureSelected()
+	public boolean isDynamicItemLayoutFeatureSelected()
 	{
-		return AdapterViewFeature.ITEM_LAYOUT.equals(getSelectedFeature());
+		return AdapterViewFeature.DYNAMIC_ITEM_LAYOUT.equals(getSelectedFeature());
+	}
+
+	@DependsOnStateOf(SELECTED_ITEM_LAYOUT_INDEX)
+	public int getDynamicItemLayout()
+	{
+		return getSelectedItemLayout().getLayoutResourceId();
+	}
+	
+	@ItemPresentationModel(value=StringItemPresentationModel.class)
+	public List<String> getStaticStrings()
+	{
+		return SampleStrings.getSample();
 	}
 	
 	@ItemPresentationModel(value=NameItemPresentationModel.class)
@@ -154,11 +142,11 @@ public class AdapterViewPresentationModel implements PublicMethodInvocationLog
 
 	private StringItemLayout getSelectedItemLayout()
 	{
-		return StringItemLayout.indexOf(selectedItemLayoutIndex);
+		return StringItemLayout.valueOf(selectedItemLayoutIndex);
 	}
 
 	private AdapterViewFeature getSelectedFeature()
 	{
-		return AdapterViewFeature.indexOf(selectedFeatureIndex);
+		return AdapterViewFeature.valueOf(selectedFeatureIndex);
 	}
 }

@@ -9,5 +9,6 @@
     <string name="selected_items">Selected items:</string>
     <string name="sources">Sources:</string>
     <string name="item_layouts">Item layouts:</string>
+    <string name="selected_item">Selected item:</string>
 
 </resources>

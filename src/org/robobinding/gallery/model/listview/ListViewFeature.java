@@ -31,7 +31,8 @@ public enum ListViewFeature implements HasName
 {
 	HEADER_VISIBILITY("Header visibility"), 
 	FOOTER_VISIBILITY("Footer visibility"), 
-	CHOICE_MODE("Choice mode");
+	CHECKED_ITEM_POSITION("Checked item position"),
+	CHECKED_ITEM_POSITIONS("Checked item positions");
 	
 	private String name;
 	
@@ -53,7 +54,7 @@ public enum ListViewFeature implements HasName
 		return Collections.unmodifiableList(features);
 	}
 
-	public static ListViewFeature indexOf(int index)
+	public static ListViewFeature valueOf(int index)
 	{
 		return features.get(index);
 	}

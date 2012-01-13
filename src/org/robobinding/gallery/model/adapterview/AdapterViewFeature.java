@@ -29,8 +29,8 @@ import org.robobinding.internal.com_google_common.collect.Lists;
  */
 public enum AdapterViewFeature implements HasName
 {
-	SOURCE("Source"),
-	ITEM_LAYOUT("Item layout");
+	DYNAMIC_SOURCE("Dynamic source"),
+	DYNAMIC_ITEM_LAYOUT("Dynamic item layout");
 	
 	private String name;
 
@@ -52,7 +52,7 @@ public enum AdapterViewFeature implements HasName
 		return Collections.unmodifiableList(features);
 	}
 
-	public static AdapterViewFeature indexOf(int index)
+	public static AdapterViewFeature valueOf(int index)
 	{
 		return features.get(index);
 	}

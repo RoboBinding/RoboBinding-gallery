@@ -4,12 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-    <ListView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        bind:itemLayout="{itemLayout}"
-        bind:source="{strings}"/>
 
     <TextView 
         android:text="@string/features"
@@ -27,32 +21,54 @@
   		bind:source="{features}"
   		bind:selectedItemPosition="${selectedFeatureIndex}"/>
     
-    <TextView 
-       	bind:text="{selectedFeatureName}"
+    <!-- For dynamic source feature -->
+    <LinearLayout 
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        bind:visibility="{dynamicSourceFeatureSelected}"
+        android:orientation="vertical">
+            
+	    <ListView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        bind:itemLayout="@android:layout/simple_list_item_1"
+            bind:itemMapping="[text1.text:{value}]"
+	        bind:source="{dynamicStrings}"/>
+	        
+	    <Spinner 
+	    	android:layout_width="fill_parent"
+	  		android:layout_height="wrap_content"
+	  		android:prompt="@string/sources"
+	  		bind:itemLayout="@android:layout/simple_spinner_item"
+	  		bind:itemMapping="[text1.text:{name}]"
+	  		bind:dropdownLayout="@android:layout/simple_spinner_dropdown_item"
+	  		bind:dropdownMapping="[text1.text:{name}]"
+	  		bind:source="{sources}"
+	  		bind:selectedItemPosition="${selectedSourceIndex}"/>
+    </LinearLayout>
     
-    <Spinner 
-        bind:visibility="{sourceFeatureSelected}"
-    	android:layout_width="fill_parent"
-  		android:layout_height="wrap_content"
-  		android:prompt="@string/sources"
-  		bind:itemLayout="@android:layout/simple_spinner_item"
-  		bind:itemMapping="[text1.text:{name}]"
-  		bind:dropdownLayout="@android:layout/simple_spinner_dropdown_item"
-  		bind:dropdownMapping="[text1.text:{name}]"
-  		bind:source="{sources}"
-  		bind:selectedItemPosition="${selectedSourceIndex}"/>
-    
-    <Spinner 
-        bind:visibility="{itemLayoutFeatureSelected}"
-    	android:layout_width="fill_parent"
-  		android:layout_height="wrap_content"
-  		android:prompt="@string/item_layouts"
-  		bind:itemLayout="@android:layout/simple_spinner_item"
-  		bind:itemMapping="[text1.text:{name}]"
-  		bind:dropdownLayout="@android:layout/simple_spinner_dropdown_item"
-  		bind:dropdownMapping="[text1.text:{name}]"
-  		bind:source="{itemLayouts}"
-  		bind:selectedItemPosition="${selectedItemLayoutIndex}"/>
+    <!-- For dynamic itemLayout feature -->
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        bind:visibility="{dynamicItemLayoutFeatureSelected}"
+        android:orientation="vertical">
+        
+	    <ListView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        bind:itemLayout="{dynamicItemLayout}"
+	        bind:source="{staticStrings}"/>
+	        
+        <Spinner 
+	    	android:layout_width="fill_parent"
+	  		android:layout_height="wrap_content"
+	  		android:prompt="@string/item_layouts"
+	  		bind:itemLayout="@android:layout/simple_spinner_item"
+	  		bind:itemMapping="[text1.text:{name}]"
+	  		bind:dropdownLayout="@android:layout/simple_spinner_dropdown_item"
+	  		bind:dropdownMapping="[text1.text:{name}]"
+	  		bind:source="{itemLayouts}"
+	  		bind:selectedItemPosition="${selectedItemLayoutIndex}"/>
+    </LinearLayout>
 </LinearLayout>

@@ -12,6 +12,11 @@
         <activity
             android:name="org.robobinding.gallery.activity.GalleryActivity"
             android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         
         <activity android:name="org.robobinding.gallery.activity.ListViewActivity">
@@ -19,12 +24,9 @@
         </activity>
         
          <activity android:name="org.robobinding.gallery.activity.AdapterViewActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
+             
     </application>
 
 </manifest>

@@ -20,6 +20,7 @@ import java.util.Map;
 
 import org.robobinding.DependsOnStateOf;
 import org.robobinding.ItemPresentationModel;
+import org.robobinding.gallery.activity.AdapterViewActivity;
 import org.robobinding.gallery.activity.ListViewActivity;
 import org.robobinding.gallery.model.Widget;
 import org.robobinding.internal.com_google_common.collect.Maps;
@@ -43,8 +44,9 @@ public class GalleryPresentationModel
 	private Context context;
 	private int selectedWidgetIndex;
 
-	public GalleryPresentationModel()
+	public GalleryPresentationModel(Context context)
 	{
+		this.context = context;
 		selectedWidgetIndex = 0;
 	}
 
@@ -81,12 +83,13 @@ public class GalleryPresentationModel
 
 	private Widget getSelectedWidget()
 	{
-		return Widget.indexOf(selectedWidgetIndex);
+		return Widget.valueOf(selectedWidgetIndex);
 	}
 	
 	private static Map<Widget, Class<? extends Activity>> createWidgetToActivity()
 	{
 		Map<Widget, Class<? extends Activity>> widgetToActivity = Maps.newHashMap();
+		widgetToActivity.put(Widget.ADAPTER_VIEW, AdapterViewActivity.class);
 		widgetToActivity.put(Widget.LIST_VIEW, ListViewActivity.class);
 		return widgetToActivity;
 	}

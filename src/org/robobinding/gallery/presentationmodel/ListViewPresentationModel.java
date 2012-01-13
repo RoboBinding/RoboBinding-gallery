@@ -22,14 +22,12 @@ import org.robobinding.ItemPresentationModel;
 import org.robobinding.gallery.invocationlog.PublicMethodInvocationLog;
 import org.robobinding.gallery.model.ToStringUtils;
 import org.robobinding.gallery.model.adapterview.SampleStrings;
-import org.robobinding.gallery.model.listview.ChoiceMode;
 import org.robobinding.gallery.model.listview.ListViewFeature;
 import org.robobinding.gallery.model.view.BooleanVisibility;
 import org.robobinding.gallery.model.view.IntegerVisibility;
 import org.robobinding.presentationmodelaspects.PresentationModel;
 
 import android.util.SparseBooleanArray;
-import android.widget.ListView;
 
 /**
  *
@@ -44,8 +42,6 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 
 	private static final String HEADER_BOOLEAN_VISIBILITY = "headerBooleanVisibility";
 
-	private static final String SELECTED_CHOICE_MODE_INDEX = "selectedChoiceModeIndex";
-
 	private static final String SELECTED_FEATURE_INDEX = "selectedFeatureIndex";
 	
 	private int selectedFeatureIndex;
@@ -53,8 +49,6 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 	private BooleanVisibility headerBooleanVisibility;
 	
 	private IntegerVisibility footerIntegerVisibility;
-	
-	private int selectedChoiceModeIndex;
 	
 	private SparseBooleanArray checkedItemPositions;
 	private int checkedItemPosition;
@@ -67,10 +61,9 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 		
 		footerIntegerVisibility = new IntegerVisibility();
 		
-		selectedChoiceModeIndex = 0;
-		
 		checkedItemPositions = new SparseBooleanArray();
-		checkedItemPosition = ListView.INVALID_POSITION;
+		checkedItemPositions.append(0, true);
+		checkedItemPosition = 0;
 	}
 	
 	@ItemPresentationModel(value=StringItemPresentationModel.class)
@@ -79,17 +72,6 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 		return SampleStrings.getSample();
 	}
 	
-	public SampleStringsFooter getFooter()
-	{
-		return SampleStringsFooter.getInstance();
-	}
-	
-	@DependsOnStateOf(SELECTED_CHOICE_MODE_INDEX)
-	public int getItemLayout()
-	{
-		return getSelectedChoiceMode().getLayoutResourceId();
-	}
-
 	@ItemPresentationModel(value=NameItemPresentationModel.class)
 	public List<ListViewFeature> getFeatures()
 	{
@@ -107,9 +89,9 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 	}
 	
 	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
-	public String getSelectedFeatureName()
+	public boolean isHeaderOrFooterVisibilityFeatureSelected()
 	{
-		return getSelectedFeature().getName()+":";
+		return isHeaderVisibilityFeatureSelected() || isFooterVisibilityFeatureSelected();
 	}
 	
 	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
@@ -135,6 +117,11 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 		return "Header "+headerBooleanVisibility.describe("visible", "invisible");
 	}
 	
+	public SampleStringsFooter getFooter()
+	{
+		return SampleStringsFooter.getInstance();
+	}
+
 	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
 	public boolean isFooterVisibilityFeatureSelected()
 	{
@@ -159,31 +146,31 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 	}
 	
 	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
-	public boolean isChoiceModeFeatureSelected()
+	public boolean isCheckedItemPositionFeatureSelected()
 	{
-		return ListViewFeature.CHOICE_MODE.equals(getSelectedFeature());
+		return ListViewFeature.CHECKED_ITEM_POSITION.equals(getSelectedFeature());
 	}
 	
-	@ItemPresentationModel(value=NameItemPresentationModel.class)
-	public List<ChoiceMode> getChoiceModes()
+	public int getCheckedItemPosition()
 	{
-		return ChoiceMode.choiceModes();
+		return checkedItemPosition;
+	}
+
+	public void setCheckedItemPosition(int checkedItemPosition)
+	{
+		this.checkedItemPosition = checkedItemPosition;
+	}
+
+	@DependsOnStateOf("checkedItemPosition")
+	public String getDescriptionOfSelectedItem()
+	{
+		return ""+checkedItemPosition;
 	}
 	
-	public int getSelectedChoiceModeIndex()
+	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
+	public boolean isCheckedItemPositionsFeatureSelected()
 	{
-		return selectedChoiceModeIndex;
-	}
-
-	public void setSelectedChoiceModeIndex(int selectedChoiceModeIndex)
-	{
-		this.selectedChoiceModeIndex = selectedChoiceModeIndex;
-	}
-
-	@DependsOnStateOf(SELECTED_CHOICE_MODE_INDEX)
-	public int getChoiceMode()
-	{
-		return getSelectedChoiceMode().getModeValue();
+		return ListViewFeature.CHECKED_ITEM_POSITIONS.equals(getSelectedFeature());
 	}
 	
 	public SparseBooleanArray getCheckedItemPositions()
@@ -196,36 +183,14 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 		this.checkedItemPositions = checkedItemPositions;
 	}
 
-	public int getCheckedItemPosition()
-	{
-		return checkedItemPosition;
-	}
-
-	public void setCheckedItemPosition(int checkedItemPosition)
-	{
-		this.checkedItemPosition = checkedItemPosition;
-	}
-
-	@DependsOnStateOf({"checkedItemPositions", "checkedItemPosition", SELECTED_CHOICE_MODE_INDEX})
+	@DependsOnStateOf("checkedItemPositions")
 	public String getDescriptionOfSelectedItems()
 	{
-		if(ChoiceMode.CHOICE_MODE_SINGLE.equals(getSelectedChoiceMode()))
-		{
-			return ""+checkedItemPosition;
-		}else
-		{
-			return ToStringUtils.toString(checkedItemPositions);
-		}
+		return ToStringUtils.toString(checkedItemPositions);
 	}
 	
 	private ListViewFeature getSelectedFeature()
 	{
-		return ListViewFeature.indexOf(selectedFeatureIndex);
+		return ListViewFeature.valueOf(selectedFeatureIndex);
 	}
-	
-	private ChoiceMode getSelectedChoiceMode()
-	{
-		return ChoiceMode.indexOf(selectedChoiceModeIndex);
-	}
-	
 }

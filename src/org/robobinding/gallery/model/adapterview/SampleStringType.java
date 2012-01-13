@@ -59,7 +59,7 @@ public enum SampleStringType implements HasName
 		return Collections.unmodifiableList(types);
 	}
 
-	public static SampleStringType indexOf(int index)
+	public static SampleStringType valueOf(int index)
 	{
 		return types.get(index);
 	}

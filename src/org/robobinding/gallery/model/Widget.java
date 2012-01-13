@@ -28,6 +28,7 @@ import org.robobinding.internal.com_google_common.collect.Lists;
  */
 public enum Widget implements HasName
 {
+	ADAPTER_VIEW("AdapterView"),
 	LIST_VIEW("ListView");
 
 	private String name;
@@ -50,7 +51,7 @@ public enum Widget implements HasName
 		return Collections.unmodifiableList(widgets);
 	}
 
-	public static Widget indexOf(int index)
+	public static Widget valueOf(int index)
 	{
 		return widgets.get(index);
 	}
