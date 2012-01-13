@@ -15,7 +15,7 @@
  */
 package org.robobinding.gallery.presentationmodel;
 
-import org.robobinding.gallery.model.SampleStrings;
+import org.robobinding.gallery.model.adapterview.SampleStrings;
 import org.robobinding.presentationmodelaspects.PresentationModel;
 
 import android.text.Html;
@@ -36,7 +36,7 @@ public class SampleStringsFooter
 	
 	public Spanned getDescription()
 	{
-		int size = SampleStrings.getStrings().size();
+		int size = SampleStrings.getSample().size();
 		return Html.fromHtml("There are <BIG><EM>"+size+"</EM></BIG> samples.");
 	}
 	

@@ -19,12 +19,13 @@ import java.util.List;
 
 import org.robobinding.DependsOnStateOf;
 import org.robobinding.ItemPresentationModel;
-import org.robobinding.gallery.model.BooleanVisibility;
-import org.robobinding.gallery.model.IntegerVisibility;
-import org.robobinding.gallery.model.SampleStrings;
+import org.robobinding.gallery.invocationlog.PublicMethodInvocationLog;
 import org.robobinding.gallery.model.ToStringUtils;
+import org.robobinding.gallery.model.adapterview.SampleStrings;
 import org.robobinding.gallery.model.listview.ChoiceMode;
 import org.robobinding.gallery.model.listview.ListViewFeature;
+import org.robobinding.gallery.model.view.BooleanVisibility;
+import org.robobinding.gallery.model.view.IntegerVisibility;
 import org.robobinding.presentationmodelaspects.PresentationModel;
 
 import android.util.SparseBooleanArray;
@@ -37,7 +38,7 @@ import android.widget.ListView;
  * @author Cheng Wei
  */
 @PresentationModel
-public class ListViewPresentationModel
+public class ListViewPresentationModel implements PublicMethodInvocationLog
 {
 	private static final String FOOTER_INTEGER_VISIBILITY = "footerIntegerVisibility";
 
@@ -75,7 +76,7 @@ public class ListViewPresentationModel
 	@ItemPresentationModel(value=StringItemPresentationModel.class)
 	public List<String> getStrings()
 	{
-		return SampleStrings.getStrings();
+		return SampleStrings.getSample();
 	}
 	
 	public SampleStringsFooter getFooter()

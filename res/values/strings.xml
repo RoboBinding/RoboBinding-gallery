@@ -7,5 +7,7 @@
     <string name="features">Features:</string>
     <string name="sample_strings_header">Sample strings header</string>
     <string name="selected_items">Selected items:</string>
+    <string name="sources">Sources:</string>
+    <string name="item_layouts">Item layouts:</string>
 
 </resources>
