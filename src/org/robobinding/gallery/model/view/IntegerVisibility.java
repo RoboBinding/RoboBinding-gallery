@@ -31,7 +31,7 @@ public class IntegerVisibility
 	public IntegerVisibility()
 	{
 		values = new int[]{View.VISIBLE, View.INVISIBLE, View.GONE};
-		currentIndex = 0;
+		currentIndex = 2;
 	}
 	
 	public int getValue()

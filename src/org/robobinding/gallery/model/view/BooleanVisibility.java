@@ -26,7 +26,7 @@ public class BooleanVisibility
 	private boolean visible;
 	public BooleanVisibility()
 	{
-		visible = true;
+		visible = false;
 	}
 	
 	public boolean getValue()

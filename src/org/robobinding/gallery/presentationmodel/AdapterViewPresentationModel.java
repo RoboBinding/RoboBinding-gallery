@@ -17,14 +17,14 @@ package org.robobinding.gallery.presentationmodel;
 
 import java.util.List;
 
-import org.robobinding.DependsOnStateOf;
-import org.robobinding.ItemPresentationModel;
 import org.robobinding.gallery.invocationlog.PublicMethodInvocationLog;
 import org.robobinding.gallery.model.adapterview.AdapterViewFeature;
 import org.robobinding.gallery.model.adapterview.SampleStringType;
 import org.robobinding.gallery.model.adapterview.SampleStrings;
 import org.robobinding.gallery.model.adapterview.StringItemLayout;
-import org.robobinding.presentationmodelaspects.PresentationModel;
+import org.robobinding.presentationmodel.DependsOnStateOf;
+import org.robobinding.presentationmodel.ItemPresentationModel;
+import org.robobinding.presentationmodel.PresentationModel;
 
 /**
  *
