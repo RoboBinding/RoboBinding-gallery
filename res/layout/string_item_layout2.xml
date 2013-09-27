@@ -3,12 +3,14 @@
     xmlns:bind="http://robobinding.org/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@drawable/my_list_selector_background">
     
     <TextView 
         bind:text="{value}"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FFFF00"/>
+        android:textColor="#FFFF00"
+        android:background="@drawable/my_list_selector_background"/>
 
 </LinearLayout>

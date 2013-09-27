@@ -18,9 +18,10 @@ package org.robobinding.gallery.model.adapterview;
 import java.util.Collections;
 import java.util.List;
 
-import org.robobinding.gallary.R;
+import org.robobinding.gallery.R;
 import org.robobinding.gallery.model.HasName;
-import org.robobinding.internal.com_google_common.collect.Lists;
+
+import com.google.common.collect.Lists;
 
 /**
  *

@@ -13,14 +13,9 @@
  * See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package org.robobinding.gallery.model.adapterview;
-
-import java.util.Collections;
-import java.util.List;
+package org.robobinding.gallery.model.view;
 
 import org.robobinding.gallery.model.HasName;
-
-import com.google.common.collect.Lists;
 
 /**
  *
@@ -28,40 +23,22 @@ import com.google.common.collect.Lists;
  * @version $Revision: 1.0 $
  * @author Cheng Wei
  */
-public enum SampleStringType implements HasName
+public enum ViewFeature implements HasName
 {
-	SAMPLE1("Sample strings 1", SampleStrings.getSample1()), 
-	SAMPLE2("Sample strings 2", SampleStrings.getSample2());
+	BACKGROUND("Background"), 
+	BACKGROUND_COLOR("Background color"),
+	ENABLED("Enabled"),
+	VISIBILITY("Visibility");
 	
 	private String name;
-	private List<String> sample;
-	
-	private SampleStringType(String name, List<String> sample)
+	private ViewFeature(String name)
 	{
 		this.name = name;
-		this.sample = sample;
 	}
-	
 	@Override
 	public String getName()
 	{
 		return name;
 	}
-	
-	public List<String> getSample()
-	{
-		return sample;
-	}
 
-	private static List<SampleStringType> types = Lists.newArrayList(SampleStringType.values());
-
-	public static List<SampleStringType> types()
-	{
-		return Collections.unmodifiableList(types);
-	}
-
-	public static SampleStringType valueOf(int index)
-	{
-		return types.get(index);
-	}
 }

@@ -15,8 +15,8 @@
  */
 package org.robobinding.gallery.activity;
 
-import org.robobinding.binder.Binder;
-import org.robobinding.gallary.R;
+import org.robobinding.binder.Binders;
+import org.robobinding.gallery.R;
 import org.robobinding.gallery.presentationmodel.AdapterViewPresentationModel;
 
 import android.app.Activity;
@@ -35,15 +35,15 @@ public class AdapterViewActivity extends Activity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		
+
 		presentationModel = new AdapterViewPresentationModel();
-		Binder.bind(this, R.layout.adapter_view_activity, presentationModel);
+		Binders.bind(this, R.layout.adapter_view_activity, presentationModel);
 	}
 	@Override
 	protected void onResume()
 	{
 		super.onResume();
-		
+
 		presentationModel.refreshPresentationModel();
 	}
 }

@@ -25,26 +25,23 @@ import android.util.SparseBooleanArray;
  * @version $Revision: 1.0 $
  * @author Cheng Wei
  */
-public class ToStringUtils
-{
-	public static String toString(SparseBooleanArray array)
-	{
-		StrBuilder sb = new StrBuilder();
-		for(int i=0; i<array.size(); i++)
-		{
-			sb.append(array.keyAt(i));
-			sb.append(":");
-			sb.append(array.valueAt(i));
-			sb.append(", ");
-		}
-		
-		if(sb.endsWith(", "))
-		{
-			sb.delete(sb.length()-2, sb.length());
-		}
-		
-		return sb.toString();
+public class ToStringUtils {
+    public static String toString(SparseBooleanArray array) {
+	StrBuilder sb = new StrBuilder();
+	for (int i = 0; i < array.size(); i++) {
+	    sb.append(array.keyAt(i));
+	    sb.append(":");
+	    sb.append(array.valueAt(i));
+	    sb.append(", ");
 	}
-	
-	private ToStringUtils(){}
+
+	if (sb.endsWith(", ")) {
+	    sb.delete(sb.length() - 2, sb.length());
+	}
+
+	return sb.toString();
+    }
+
+    private ToStringUtils() {
+    }
 }

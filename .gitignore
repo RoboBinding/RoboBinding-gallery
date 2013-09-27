@@ -3,6 +3,6 @@
 /gen
 /.settings
 /target
-/.classpath
 /.project
 /lint.xml
+/proguard

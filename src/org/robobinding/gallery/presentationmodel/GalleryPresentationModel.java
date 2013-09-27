@@ -21,7 +21,6 @@ import java.util.Map;
 import org.robobinding.gallery.activity.AdapterViewActivity;
 import org.robobinding.gallery.activity.ListViewActivity;
 import org.robobinding.gallery.model.Widget;
-import org.robobinding.internal.com_google_common.collect.Maps;
 import org.robobinding.presentationmodel.DependsOnStateOf;
 import org.robobinding.presentationmodel.ItemPresentationModel;
 import org.robobinding.presentationmodel.PresentationModel;
@@ -29,6 +28,8 @@ import org.robobinding.presentationmodel.PresentationModel;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+
+import com.google.common.collect.Maps;
 
 /**
  * 

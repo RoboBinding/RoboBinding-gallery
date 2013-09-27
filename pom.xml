@@ -31,7 +31,7 @@
 		<dependency>
 			<groupId>org.robobinding</groupId>
 			<artifactId>robobinding</artifactId>
-			<version>0.8.0-SNAPSHOT</version>
+			<version>0.8.2-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
@@ -39,19 +39,19 @@
 			<artifactId>aspectjrt</artifactId>
 			<version>1.6.11</version>
 		</dependency>
-		
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.1</version>
-		</dependency>
-		
+
 		<dependency>
 			<groupId>com.google.android</groupId>
 			<artifactId>android</artifactId>
-			<version>1.6_r2</version>
+			<version>2.2.1</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.1</version>
+</dependency>
 	</dependencies>
 
 	<build>
@@ -94,7 +94,7 @@
 			<plugin>
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 				<artifactId>android-maven-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>3.6.1</version>
 				<configuration>
 					<sdk>
 						<platform>8</platform>
@@ -103,10 +103,10 @@
 				<extensions>true</extensions>
 			</plugin>
 		</plugins>
-		
+
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -128,6 +128,7 @@
 										</versionRange>
 										<goals>
 											<goal>proguard</goal>
+											<goal>generate-sources</goal>
 										</goals>
 									</pluginExecutionFilter>
 									<action>
