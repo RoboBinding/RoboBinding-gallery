@@ -21,7 +21,7 @@ import java.util.List;
 import com.google.common.collect.Lists;
 
 /**
- * 
+ *
  * @since 1.0
  * @version $Revision: 1.0 $
  * @author Cheng Wei
@@ -29,7 +29,8 @@ import com.google.common.collect.Lists;
 public enum Widget implements HasName
 {
 	ADAPTER_VIEW("AdapterView"),
-	LIST_VIEW("ListView");
+	LIST_VIEW("ListView"),
+	CUSTOM_VIEW("CustomView");
 
 	private String name;
 

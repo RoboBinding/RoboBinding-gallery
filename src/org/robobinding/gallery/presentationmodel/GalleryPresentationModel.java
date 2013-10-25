@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.robobinding.gallery.activity.AdapterViewActivity;
+import org.robobinding.gallery.activity.CustomViewActivity;
 import org.robobinding.gallery.activity.ListViewActivity;
 import org.robobinding.gallery.model.Widget;
 import org.robobinding.presentationmodel.DependsOnStateOf;
@@ -32,7 +33,7 @@ import android.content.Intent;
 import com.google.common.collect.Maps;
 
 /**
- * 
+ *
  * @since 1.0
  * @version $Revision: 1.0 $
  * @author Cheng Wei
@@ -73,11 +74,11 @@ public class GalleryPresentationModel
 		Widget widget = getSelectedWidget();
 		return "Try "+widget.getName();
 	}
-	
+
 	public void tryWidget()
 	{
 		Widget widget = getSelectedWidget();
-		
+
 		Class<?> activityClass = widgetToActivity.get(widget);
 		context.startActivity(new Intent(context, activityClass));
 	}
@@ -86,12 +87,13 @@ public class GalleryPresentationModel
 	{
 		return Widget.valueOf(selectedWidgetIndex);
 	}
-	
+
 	private static Map<Widget, Class<? extends Activity>> createWidgetToActivity()
 	{
 		Map<Widget, Class<? extends Activity>> widgetToActivity = Maps.newHashMap();
 		widgetToActivity.put(Widget.ADAPTER_VIEW, AdapterViewActivity.class);
 		widgetToActivity.put(Widget.LIST_VIEW, ListViewActivity.class);
+		widgetToActivity.put(Widget.CUSTOM_VIEW, CustomViewActivity.class);
 		return widgetToActivity;
 	}
 }

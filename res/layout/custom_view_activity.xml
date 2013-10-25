@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://robobinding.org/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	<org.robobinding.gallery.model.customview.TitleDescriptionBar
+	    bind:title="{title}"
+	    bind:description="{description}"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"/>
+
+	<TableLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:stretchColumns="1">
+	    <TableRow>
+	    	<TextView android:text="New title:"/>
+	    	<EditText bind:text="${newTitle}"/>
+	    </TableRow>
+	    <TableRow android:layout_width="match_parent">
+	        <TextView android:text="New descritpion:"/>
+	        <EditText bind:text="${newDescription}"/>
+	    </TableRow>
+	    <TableRow>
+	        <Button bind:onClick="applyNewTitleDescription" android:text="Apply"/>
+	    </TableRow>
+	</TableLayout>
+</LinearLayout>

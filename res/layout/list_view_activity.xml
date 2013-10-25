@@ -22,7 +22,7 @@
         bind:source="{features}" />
 
     <!-- for header and footer features -->
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
