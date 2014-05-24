@@ -1,1 +1,1 @@
-To demonstrate usage of supported binding attributes of widgets in the https://github.com/RoboBinding/RoboBinding[RoboBinding] framework.
+An android app to demonstrate usage of supported binding attributes of widgets in the https://github.com/RoboBinding/RoboBinding[RoboBinding] framework.
