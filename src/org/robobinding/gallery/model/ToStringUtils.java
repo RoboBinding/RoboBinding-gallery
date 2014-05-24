@@ -15,8 +15,6 @@
  */
 package org.robobinding.gallery.model;
 
-import org.apache.commons.lang3.text.StrBuilder;
-
 import android.util.SparseBooleanArray;
 
 /**
@@ -27,7 +25,7 @@ import android.util.SparseBooleanArray;
  */
 public class ToStringUtils {
     public static String toString(SparseBooleanArray array) {
-	StrBuilder sb = new StrBuilder();
+	StringBuilder sb = new StringBuilder();
 	for (int i = 0; i < array.size(); i++) {
 	    sb.append(array.keyAt(i));
 	    sb.append(":");
@@ -35,7 +33,7 @@ public class ToStringUtils {
 	    sb.append(", ");
 	}
 
-	if (sb.endsWith(", ")) {
+	if (sb.toString().endsWith(", ")) {
 	    sb.delete(sb.length() - 2, sb.length());
 	}
 
