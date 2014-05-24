@@ -30,7 +30,7 @@ public enum Widget implements HasName
 {
 	ADAPTER_VIEW("AdapterView"),
 	LIST_VIEW("ListView"),
-	CUSTOM_VIEW("CustomView");
+	CUSTOM_VIEW("Custom Component");
 
 	private String name;
 

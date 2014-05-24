@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.robobinding.gallery.activity.AdapterViewActivity;
-import org.robobinding.gallery.activity.CustomViewActivity;
+import org.robobinding.gallery.activity.CustomComponentActivity;
 import org.robobinding.gallery.activity.ListViewActivity;
 import org.robobinding.gallery.model.Widget;
 import org.robobinding.presentationmodel.DependsOnStateOf;
@@ -93,7 +93,7 @@ public class GalleryPresentationModel
 		Map<Widget, Class<? extends Activity>> widgetToActivity = Maps.newHashMap();
 		widgetToActivity.put(Widget.ADAPTER_VIEW, AdapterViewActivity.class);
 		widgetToActivity.put(Widget.LIST_VIEW, ListViewActivity.class);
-		widgetToActivity.put(Widget.CUSTOM_VIEW, CustomViewActivity.class);
+		widgetToActivity.put(Widget.CUSTOM_VIEW, CustomComponentActivity.class);
 		return widgetToActivity;
 	}
 }

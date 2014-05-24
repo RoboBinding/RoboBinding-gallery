@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package org.robobinding.gallery.model.customview;
-
+package org.robobinding.gallery.model.customcomponent;
 
 /**
  *
@@ -22,10 +21,10 @@ package org.robobinding.gallery.model.customview;
  * @version $Revision: 1.0 $
  * @author Cheng Wei
  */
-public class TitleAttribute extends AbstractTextAttribute {
+public class DescriptionAttribute extends AbstractTextAttribute {
     @Override
     protected void updateText(CharSequence newText) {
-        view.setTitle(newText);
+	view.setDescription(newText);
     }
 
 }

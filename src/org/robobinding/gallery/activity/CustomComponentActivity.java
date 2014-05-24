@@ -19,9 +19,9 @@ import org.robobinding.ActivityBinder;
 import org.robobinding.binder.BinderFactory;
 import org.robobinding.binder.BinderFactoryBuilder;
 import org.robobinding.gallery.R;
-import org.robobinding.gallery.model.customview.TitleDescriptionBar;
-import org.robobinding.gallery.model.customview.TitleDescriptionBarAttributeMapper;
-import org.robobinding.gallery.presentationmodel.CustomViewPresentationModel;
+import org.robobinding.gallery.model.customcomponent.TitleDescriptionBar;
+import org.robobinding.gallery.model.customcomponent.TitleDescriptionBarAttributeMapper;
+import org.robobinding.gallery.presentationmodel.CustomComponentPresentationModel;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -32,18 +32,18 @@ import android.os.Bundle;
  * @version $Revision: 1.0 $
  * @author Cheng Wei
  */
-public class CustomViewActivity extends Activity {
+public class CustomComponentActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        CustomViewPresentationModel presentationModel = new CustomViewPresentationModel();
+        CustomComponentPresentationModel presentationModel = new CustomComponentPresentationModel();
 
         BinderFactory binderFactory = new BinderFactoryBuilder()
         	.mapView(TitleDescriptionBar.class, new TitleDescriptionBarAttributeMapper())
         	.build();
 
         ActivityBinder activityBinder = binderFactory.createActivityBinder(this, true);
-        activityBinder.inflateAndBind(R.layout.custom_view_activity, presentationModel);
+        activityBinder.inflateAndBind(R.layout.custom_component_activity, presentationModel);
     }
 }

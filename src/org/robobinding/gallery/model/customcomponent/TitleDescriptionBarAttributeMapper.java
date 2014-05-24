@@ -13,7 +13,10 @@
  * See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package org.robobinding.gallery.model.customview;
+package org.robobinding.gallery.model.customcomponent;
+
+import org.robobinding.viewattribute.BindingAttributeMapper;
+import org.robobinding.viewattribute.BindingAttributeMappings;
 
 /**
  *
@@ -21,10 +24,10 @@ package org.robobinding.gallery.model.customview;
  * @version $Revision: 1.0 $
  * @author Cheng Wei
  */
-public class DescriptionAttribute extends AbstractTextAttribute {
+public class TitleDescriptionBarAttributeMapper implements BindingAttributeMapper<TitleDescriptionBar> {
     @Override
-    protected void updateText(CharSequence newText) {
-	view.setDescription(newText);
+    public void mapBindingAttributes(BindingAttributeMappings<TitleDescriptionBar> mappings) {
+        mappings.mapPropertyAttribute(TitleAttribute.class, "title");
+        mappings.mapPropertyAttribute(DescriptionAttribute.class, "description");
     }
-
 }

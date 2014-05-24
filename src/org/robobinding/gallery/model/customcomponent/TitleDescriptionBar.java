@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package org.robobinding.gallery.model.customview;
+package org.robobinding.gallery.model.customcomponent;
 
 import org.robobinding.gallery.R;
 
@@ -45,7 +45,6 @@ public class TitleDescriptionBar extends LinearLayout {
 	inflater.inflate(layoutId, this);
 	title = (TextView) findViewById(R.id.title);
 	description = (TextView) findViewById(R.id.description);
-	setOrientation(LinearLayout.VERTICAL);
 
 	TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TitleDescriptionBar);
 	String titleText = a.getString(R.styleable.TitleDescriptionBar_title);

@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-	<org.robobinding.gallery.model.customview.TitleDescriptionBar
+	<org.robobinding.gallery.model.customcomponent.TitleDescriptionBar
 	    bind:title="{title}"
 	    bind:description="{description}"
-	    android:layout_width="wrap_content"
+	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"/>
 
 	<TableLayout

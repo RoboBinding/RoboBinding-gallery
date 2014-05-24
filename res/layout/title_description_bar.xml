@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://robobinding.org/android">
+    xmlns:bind="http://robobinding.org/android"
+	android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/my_custom_border"
+    android:layout_marginTop="2dip"
+    android:layout_marginRight="2dip"
+  	android:paddingTop="10dip"
+  	android:paddingBottom="10dip">
     <TextView
   		android:id="@+id/title"
   		android:layout_width="wrap_content"
   		android:layout_height="wrap_content"
-  		android:textStyle="bold"
-  		bind:title="{title}"/>
+  		android:textStyle="bold"/>
+    <TextView android:text=": "
+        android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"/>
   	<TextView
   		android:id="@+id/description"
   		android:layout_width="wrap_content"
-  		android:layout_height="wrap_content"
-  		bind:description="{description}"/>
+  		android:layout_height="wrap_content"/>
 </merge>

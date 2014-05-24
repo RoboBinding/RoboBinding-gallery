@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package org.robobinding.gallery.model.customview;
+package org.robobinding.gallery.model.customcomponent;
 
 import org.robobinding.viewattribute.AbstractReadOnlyPropertyViewAttribute;
 

@@ -24,13 +24,13 @@ import org.robobinding.presentationmodel.PresentationModel;
  * @author Cheng Wei
  */
 @PresentationModel
-public class CustomViewPresentationModel {
+public class CustomComponentPresentationModel {
     private String title;
     private String description;
     private String newTitle;
     private String newDescription;
 
-    public CustomViewPresentationModel() {
+    public CustomComponentPresentationModel() {
 	this.title = "Default title";
 	this.description = "Default description";
     }
