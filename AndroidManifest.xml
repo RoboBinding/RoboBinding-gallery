@@ -28,6 +28,9 @@
 
         <activity android:name="org.robobinding.gallery.activity.CustomComponentActivity" >
         </activity>
+
+        <activity android:name="org.robobinding.gallery.activity.TypedCursorActivity" >
+        </activity>
     </application>
 
 </manifest>

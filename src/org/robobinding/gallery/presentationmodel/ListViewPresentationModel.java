@@ -18,7 +18,7 @@ package org.robobinding.gallery.presentationmodel;
 import java.util.List;
 
 import org.robobinding.gallery.invocationlog.PublicMethodInvocationLog;
-import org.robobinding.gallery.model.ToStringUtils;
+import org.robobinding.gallery.model.Strings;
 import org.robobinding.gallery.model.adapterview.SampleStrings;
 import org.robobinding.gallery.model.listview.ListViewFeature;
 import org.robobinding.gallery.model.view.BooleanVisibility;
@@ -186,7 +186,7 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 	@DependsOnStateOf("checkedItemPositions")
 	public String getDescriptionOfSelectedItems()
 	{
-		return ToStringUtils.toString(checkedItemPositions);
+		return Strings.toString(checkedItemPositions);
 	}
 	
 	private ListViewFeature getSelectedFeature()
