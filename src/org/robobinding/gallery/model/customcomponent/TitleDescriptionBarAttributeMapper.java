@@ -12,7 +12,7 @@ import org.robobinding.viewattribute.BindingAttributeMappings;
 public class TitleDescriptionBarAttributeMapper implements BindingAttributeMapper<TitleDescriptionBar> {
     @Override
     public void mapBindingAttributes(BindingAttributeMappings<TitleDescriptionBar> mappings) {
-        mappings.mapPropertyAttribute(TitleAttribute.class, "title");
-        mappings.mapPropertyAttribute(DescriptionAttribute.class, "description");
+        mappings.mapProperty(TitleAttribute.class, "title");
+        mappings.mapProperty(DescriptionAttribute.class, "description");
     }
 }

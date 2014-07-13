@@ -1,5 +1,7 @@
 package org.robobinding.gallery.model.customcomponent;
 
+import org.robobinding.viewattribute.property.PropertyViewAttribute;
+
 
 /**
  *
@@ -7,10 +9,10 @@ package org.robobinding.gallery.model.customcomponent;
  * @version $Revision: 1.0 $
  * @author Cheng Wei
  */
-public class TitleAttribute extends AbstractTextAttribute {
-    @Override
-    protected void updateText(CharSequence newText) {
-        view.setTitle(newText);
-    }
+public class TitleAttribute implements PropertyViewAttribute<TitleDescriptionBar, CharSequence> {
 
+    @Override
+    public void updateView(TitleDescriptionBar view, CharSequence newText) {
+	view.setTitle(newText);
+    }
 }
