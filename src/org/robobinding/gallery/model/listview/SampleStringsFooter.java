@@ -1,4 +1,4 @@
-package org.robobinding.gallery.presentationmodel;
+package org.robobinding.gallery.model.listview;
 
 import org.robobinding.gallery.model.adapterview.SampleStrings;
 import org.robobinding.presentationmodel.PresentationModel;

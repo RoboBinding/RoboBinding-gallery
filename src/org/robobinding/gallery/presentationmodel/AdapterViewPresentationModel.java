@@ -18,7 +18,6 @@ package org.robobinding.gallery.presentationmodel;
 import java.util.List;
 
 import org.robobinding.gallery.invocationlog.PublicMethodInvocationLog;
-import org.robobinding.gallery.model.adapterview.AdapterViewFeature;
 import org.robobinding.gallery.model.adapterview.SampleStringType;
 import org.robobinding.gallery.model.adapterview.SampleStrings;
 import org.robobinding.gallery.model.adapterview.StringItemLayout;
@@ -35,13 +34,9 @@ import org.robobinding.presentationmodel.PresentationModel;
 @PresentationModel
 public class AdapterViewPresentationModel implements PublicMethodInvocationLog
 {
-	private static final String SELECTED_FEATURE_INDEX = "selectedFeatureIndex";
-
 	private static final String SELECTED_SOURCE_INDEX = "selectedSourceIndex";
 
 	private static final String SELECTED_ITEM_LAYOUT_INDEX = "selectedItemLayoutIndex";
-	
-	private int selectedFeatureIndex;
 	
 	private int selectedSourceIndex;
 	
@@ -49,35 +44,11 @@ public class AdapterViewPresentationModel implements PublicMethodInvocationLog
 	
 	public AdapterViewPresentationModel()
 	{
-		selectedFeatureIndex = 0;
-		
 		selectedSourceIndex = 0;
 		
 		selectedItemLayoutIndex = 0;
 	}
 	
-	@ItemPresentationModel(value=NameItemPresentationModel.class)
-	public List<AdapterViewFeature> getFeatures()
-	{
-		return AdapterViewFeature.features();
-	}
-
-	public int getSelectedFeatureIndex()
-	{
-		return selectedFeatureIndex;
-	}
-
-	public void setSelectedFeatureIndex(int selectedFeatureIndex)
-	{
-		this.selectedFeatureIndex = selectedFeatureIndex;
-	}
-
-	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
-	public boolean isDynamicSourceFeatureSelected()
-	{
-		return AdapterViewFeature.DYNAMIC_SOURCE.equals(getSelectedFeature());
-	}
-
 	@ItemPresentationModel(value=StringItemPresentationModel.class)
 	@DependsOnStateOf(SELECTED_SOURCE_INDEX)
 	public List<String> getDynamicStrings()
@@ -104,12 +75,6 @@ public class AdapterViewPresentationModel implements PublicMethodInvocationLog
 	private SampleStringType getSelectedSource()
 	{
 		return SampleStringType.valueOf(selectedSourceIndex);
-	}
-
-	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
-	public boolean isDynamicItemLayoutFeatureSelected()
-	{
-		return AdapterViewFeature.DYNAMIC_ITEM_LAYOUT.equals(getSelectedFeature());
 	}
 
 	@DependsOnStateOf(SELECTED_ITEM_LAYOUT_INDEX)
@@ -143,10 +108,5 @@ public class AdapterViewPresentationModel implements PublicMethodInvocationLog
 	private StringItemLayout getSelectedItemLayout()
 	{
 		return StringItemLayout.valueOf(selectedItemLayoutIndex);
-	}
-
-	private AdapterViewFeature getSelectedFeature()
-	{
-		return AdapterViewFeature.valueOf(selectedFeatureIndex);
 	}
 }

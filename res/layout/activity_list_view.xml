@@ -4,30 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/features" />
-
-    <Spinner
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        bind:dropdownLayout="@android:layout/simple_spinner_dropdown_item"
-        bind:dropdownMapping="[text1.text:{name}]"
-        bind:itemLayout="@android:layout/simple_spinner_item"
-        bind:itemMapping="[text1.text:{name}]"
-        android:prompt="@string/features"
-        bind:selectedItemPosition="${selectedFeatureIndex}"
-        bind:source="{features}" />
-
     <!-- for header and footer features -->
-
+	<TextView
+	    android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Header and footer features:"
+		android:textStyle="bold|italic"/>
+	
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        bind:visibility="{headerOrFooterVisibilityFeatureSelected}" >
+        android:orientation="vertical">
 
         <ListView
             android:layout_width="fill_parent"
@@ -45,23 +32,28 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             bind:onClick="changeHeaderVisibility"
-            bind:text="{headerBooleanVisibilityDescription}"
-            bind:visibility="{headerVisibilityFeatureSelected}" />
+            bind:text="{headerBooleanVisibilityDescription}"/>
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             bind:onClick="changeFooterVisibility"
-            bind:text="{footerIntegerVisibilityDescription}"
-            bind:visibility="{footerVisibilityFeatureSelected}" />
+            bind:text="{footerIntegerVisibilityDescription}"/>
     </LinearLayout>
+    
+    <View android:layout_width="fill_parent" android:layout_height="2dp" android:background="#FF0606"/>
 
     <!-- For checkedItemPosition feature -->
+	<TextView
+	    android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="CheckedItemPosition feature:"
+		android:textStyle="bold|italic"/>
+	
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        bind:visibility="{checkedItemPositionFeatureSelected}" >
+        android:orientation="vertical" >
 
         <ListView
             android:layout_width="fill_parent"
@@ -88,13 +80,20 @@
                 bind:text="{descriptionOfSelectedItem}" />
         </LinearLayout>
     </LinearLayout>
+    
+    <View android:layout_width="fill_parent" android:layout_height="2dp" android:background="#FF0606"/>
 
     <!-- For checkedItemPositions feature -->
+	<TextView
+	    android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="CheckedItemPositions feature:"
+		android:textStyle="bold|italic"/>
+	
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        bind:visibility="{checkedItemPositionsFeatureSelected}" >
+        android:orientation="vertical">
 
         <ListView
             android:layout_width="fill_parent"

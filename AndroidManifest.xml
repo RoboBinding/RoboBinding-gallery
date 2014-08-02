@@ -20,6 +20,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="org.robobinding.gallery.activity.ViewActivity" >
+        </activity>
+        
         <activity android:name="org.robobinding.gallery.activity.ListViewActivity" >
         </activity>
 
@@ -30,6 +33,9 @@
         </activity>
 
         <activity android:name="org.robobinding.gallery.activity.TypedCursorActivity" >
+        </activity>
+        
+        <activity android:name="org.robobinding.gallery.activity.DynamicBindingActivity" >
         </activity>
     </application>
 

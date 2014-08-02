@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://robobinding.org/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- For Integer Visibility feature -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Integer Visibility"
+                android:textStyle="bold"
+                bind:visibility="{integerVisibility}"/>
+
+        <Button 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            bind:text="{integerVisibilityState}"
+            bind:onClick="integerVisibilityStateNext"/>
+    </LinearLayout>
+
+</LinearLayout>

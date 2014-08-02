@@ -20,7 +20,7 @@ import java.util.List;
 import org.robobinding.gallery.invocationlog.PublicMethodInvocationLog;
 import org.robobinding.gallery.model.Strings;
 import org.robobinding.gallery.model.adapterview.SampleStrings;
-import org.robobinding.gallery.model.listview.ListViewFeature;
+import org.robobinding.gallery.model.listview.SampleStringsFooter;
 import org.robobinding.gallery.model.view.BooleanVisibility;
 import org.robobinding.gallery.model.view.IntegerVisibility;
 import org.robobinding.presentationmodel.DependsOnStateOf;
@@ -41,10 +41,6 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 	private static final String FOOTER_INTEGER_VISIBILITY = "footerIntegerVisibility";
 
 	private static final String HEADER_BOOLEAN_VISIBILITY = "headerBooleanVisibility";
-
-	private static final String SELECTED_FEATURE_INDEX = "selectedFeatureIndex";
-	
-	private int selectedFeatureIndex;
 	
 	private BooleanVisibility headerBooleanVisibility;
 	
@@ -55,8 +51,6 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 	
 	public ListViewPresentationModel()
 	{
-		selectedFeatureIndex = 0;
-		
 		headerBooleanVisibility = new BooleanVisibility();
 		
 		footerIntegerVisibility = new IntegerVisibility();
@@ -70,34 +64,6 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 	public List<String> getStrings()
 	{
 		return SampleStrings.getSample();
-	}
-	
-	@ItemPresentationModel(value=NameItemPresentationModel.class)
-	public List<ListViewFeature> getFeatures()
-	{
-		return ListViewFeature.features();
-	}
-	
-	public int getSelectedFeatureIndex()
-	{
-		return selectedFeatureIndex;
-	}
-	
-	public void setSelectedFeatureIndex(int selectedFeatureIndex)
-	{
-		this.selectedFeatureIndex = selectedFeatureIndex;
-	}
-	
-	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
-	public boolean isHeaderOrFooterVisibilityFeatureSelected()
-	{
-		return isHeaderVisibilityFeatureSelected() || isFooterVisibilityFeatureSelected();
-	}
-	
-	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
-	public boolean isHeaderVisibilityFeatureSelected()
-	{
-		return ListViewFeature.HEADER_VISIBILITY.equals(getSelectedFeature());
 	}
 	
 	public boolean getHeaderBooleanVisibility()
@@ -121,12 +87,6 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 	{
 		return SampleStringsFooter.getInstance();
 	}
-
-	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
-	public boolean isFooterVisibilityFeatureSelected()
-	{
-		return ListViewFeature.FOOTER_VISIBILITY.equals(getSelectedFeature());
-	}
 	
 	public int getFooterIntegerVisibility()
 	{
@@ -145,12 +105,6 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 		return "Footer "+footerIntegerVisibility.describe("visible", "invisible", "gone");
 	}
 	
-	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
-	public boolean isCheckedItemPositionFeatureSelected()
-	{
-		return ListViewFeature.CHECKED_ITEM_POSITION.equals(getSelectedFeature());
-	}
-	
 	public int getCheckedItemPosition()
 	{
 		return checkedItemPosition;
@@ -167,12 +121,6 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 		return ""+checkedItemPosition;
 	}
 	
-	@DependsOnStateOf(SELECTED_FEATURE_INDEX)
-	public boolean isCheckedItemPositionsFeatureSelected()
-	{
-		return ListViewFeature.CHECKED_ITEM_POSITIONS.equals(getSelectedFeature());
-	}
-	
 	public SparseBooleanArray getCheckedItemPositions()
 	{
 		return checkedItemPositions;
@@ -187,10 +135,5 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 	public String getDescriptionOfSelectedItems()
 	{
 		return Strings.toString(checkedItemPositions);
-	}
-	
-	private ListViewFeature getSelectedFeature()
-	{
-		return ListViewFeature.valueOf(selectedFeatureIndex);
 	}
 }

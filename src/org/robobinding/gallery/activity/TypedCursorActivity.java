@@ -24,7 +24,7 @@ public class TypedCursorActivity extends Activity
 
 		DatabaseHelper databaseHelper = new DatabaseHelper(this);
 		presentationModel = new TypedCursorPresentationModel(databaseHelper.getReadableDatabase());
-		Binders.bind(this, R.layout.typed_cursor_activity, presentationModel);
+		Binders.bind(this, R.layout.activity_typed_cursor, presentationModel);
 	}
 
 	@Override

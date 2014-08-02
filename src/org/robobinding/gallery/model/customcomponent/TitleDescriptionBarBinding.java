@@ -1,7 +1,7 @@
 package org.robobinding.gallery.model.customcomponent;
 
-import org.robobinding.viewattribute.BindingAttributeMapper;
 import org.robobinding.viewattribute.BindingAttributeMappings;
+import org.robobinding.viewattribute.ViewBinding;
 
 /**
  *
@@ -9,7 +9,7 @@ import org.robobinding.viewattribute.BindingAttributeMappings;
  * @version $Revision: 1.0 $
  * @author Cheng Wei
  */
-public class TitleDescriptionBarAttributeMapper implements BindingAttributeMapper<TitleDescriptionBar> {
+public class TitleDescriptionBarBinding implements ViewBinding<TitleDescriptionBar> {
     @Override
     public void mapBindingAttributes(BindingAttributeMappings<TitleDescriptionBar> mappings) {
         mappings.mapProperty(TitleAttribute.class, "title");

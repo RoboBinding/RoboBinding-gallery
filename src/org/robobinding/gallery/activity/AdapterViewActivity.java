@@ -22,7 +22,7 @@ public class AdapterViewActivity extends Activity
 		super.onCreate(savedInstanceState);
 
 		presentationModel = new AdapterViewPresentationModel();
-		Binders.bind(this, R.layout.adapter_view_activity, presentationModel);
+		Binders.bind(this, R.layout.activity_adapter_view, presentationModel);
 	}
 	@Override
 	protected void onResume()

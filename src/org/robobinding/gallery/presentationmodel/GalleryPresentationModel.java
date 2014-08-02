@@ -3,11 +3,6 @@ package org.robobinding.gallery.presentationmodel;
 import java.util.List;
 import java.util.Map;
 
-import org.robobinding.gallery.activity.AdapterViewActivity;
-import org.robobinding.gallery.activity.CustomComponentActivity;
-import org.robobinding.gallery.activity.ListViewActivity;
-import org.robobinding.gallery.activity.TypedCursorActivity;
-import org.robobinding.gallery.model.Widget;
 import org.robobinding.presentationmodel.DependsOnStateOf;
 import org.robobinding.presentationmodel.ItemPresentationModel;
 import org.robobinding.presentationmodel.PresentationModel;
@@ -16,7 +11,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
-import com.google.common.collect.Maps;
+import com.google.common.collect.Lists;
 
 /**
  *
@@ -27,60 +22,50 @@ import com.google.common.collect.Maps;
 @PresentationModel
 public class GalleryPresentationModel
 {
-	private static Map<Widget, Class<? extends Activity>> widgetToActivity = createWidgetToActivity();
-
 	private Context context;
-	private int selectedWidgetIndex;
+	private Map<String, Class<? extends Activity>> demoActivityMappings;
 
-	public GalleryPresentationModel(Context context)
+	private int selectedDemoIndex;
+
+	public GalleryPresentationModel(Context context, Map<String, Class<? extends Activity>> demoActivityMappings)
 	{
 		this.context = context;
-		selectedWidgetIndex = 0;
+		this.demoActivityMappings = demoActivityMappings;
+		selectedDemoIndex = 0;
 	}
 
-	@ItemPresentationModel(value = NameItemPresentationModel.class)
-	public List<Widget> getWidgets()
+	@ItemPresentationModel(value = StringItemPresentationModel.class)
+	public List<String> getDemoList()
 	{
-		return Widget.widgets();
+		return Lists.newArrayList(demoActivityMappings.keySet());
 	}
 
-	public int getSelectedWidgetIndex()
+	public int getSelectedDemoIndex()
 	{
-		return selectedWidgetIndex;
+		return selectedDemoIndex;
 	}
 
-	public void setSelectedWidgetIndex(int selectedWidgetIndex)
+	public void setSelectedDemoIndex(int selectedDemoIndex)
 	{
-		this.selectedWidgetIndex = selectedWidgetIndex;
+		this.selectedDemoIndex = selectedDemoIndex;
 	}
 
-	@DependsOnStateOf("selectedWidgetIndex")
-	public String getSelectedWidgetDescription()
+	@DependsOnStateOf("selectedDemoIndex")
+	public String getSelectedDemoDescription()
 	{
-		Widget widget = getSelectedWidget();
-		return "Try "+widget.getName();
+		return "Try "+getSelectedDemo();
 	}
 
-	public void tryWidget()
+	public void showDemo()
 	{
-		Widget widget = getSelectedWidget();
+		String demo = getSelectedDemo();
 
-		Class<?> activityClass = widgetToActivity.get(widget);
+		Class<?> activityClass = demoActivityMappings.get(demo);
 		context.startActivity(new Intent(context, activityClass));
 	}
 
-	private Widget getSelectedWidget()
+	private String getSelectedDemo()
 	{
-		return Widget.valueOf(selectedWidgetIndex);
-	}
-
-	private static Map<Widget, Class<? extends Activity>> createWidgetToActivity()
-	{
-		Map<Widget, Class<? extends Activity>> widgetToActivity = Maps.newHashMap();
-		widgetToActivity.put(Widget.ADAPTER_VIEW, AdapterViewActivity.class);
-		widgetToActivity.put(Widget.LIST_VIEW, ListViewActivity.class);
-		widgetToActivity.put(Widget.CUSTOM_VIEW, CustomComponentActivity.class);
-		widgetToActivity.put(Widget.TYPED_CURSOR, TypedCursorActivity.class);
-		return widgetToActivity;
+		return getDemoList().get(selectedDemoIndex);
 	}
 }

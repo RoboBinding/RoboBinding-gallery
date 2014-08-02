@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, GallaryActivity!</string>
-    <string name="app_name">RoboBinding Widget Gallery</string>
-    <string name="widget">Widget:</string>
-    <string name="features">Features:</string>
+    <string name="app_name">RoboBinding Gallery</string>
     <string name="sample_strings_header">Sample strings header</string>
     <string name="selected_items">Selected items:</string>
     <string name="sources">Sources:</string>
