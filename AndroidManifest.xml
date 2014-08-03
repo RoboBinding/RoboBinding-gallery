@@ -23,6 +23,9 @@
         <activity android:name="org.robobinding.gallery.activity.ViewActivity" >
         </activity>
         
+        <activity android:name="org.robobinding.gallery.activity.EditTextActivity" >
+        </activity>
+        
         <activity android:name="org.robobinding.gallery.activity.ListViewActivity" >
         </activity>
 

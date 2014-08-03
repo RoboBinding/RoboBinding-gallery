@@ -26,6 +26,7 @@ public class GalleryActivity extends Activity
 
 		Map<String, Class<? extends Activity>> demoActivityMappings = Maps.newLinkedHashMap();
 		demoActivityMappings.put("View", ViewActivity.class);
+		demoActivityMappings.put("EditText", EditTextActivity.class);
 		demoActivityMappings.put("AdapterView", AdapterViewActivity.class);
 		demoActivityMappings.put("ListView", ListViewActivity.class);
 		demoActivityMappings.put("Custom Component", CustomComponentActivity.class);
