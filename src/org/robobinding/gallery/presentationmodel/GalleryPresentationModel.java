@@ -3,6 +3,7 @@ package org.robobinding.gallery.presentationmodel;
 import java.util.List;
 import java.util.Map;
 
+import org.robobinding.internal.guava.Lists;
 import org.robobinding.presentationmodel.DependsOnStateOf;
 import org.robobinding.presentationmodel.ItemPresentationModel;
 import org.robobinding.presentationmodel.PresentationModel;
@@ -10,8 +11,6 @@ import org.robobinding.presentationmodel.PresentationModel;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-
-import com.google.common.collect.Lists;
 
 /**
  *

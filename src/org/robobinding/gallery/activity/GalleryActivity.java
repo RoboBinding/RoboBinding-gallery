@@ -5,11 +5,10 @@ import java.util.Map;
 import org.robobinding.binder.Binders;
 import org.robobinding.gallery.R;
 import org.robobinding.gallery.presentationmodel.GalleryPresentationModel;
+import org.robobinding.internal.guava.Maps;
 
 import android.app.Activity;
 import android.os.Bundle;
-
-import com.google.common.collect.Maps;
 
 /**
  *
