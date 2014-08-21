@@ -31,6 +31,8 @@ public class GalleryActivity extends Activity
 		demoActivityMappings.put("Custom Component", CustomComponentActivity.class);
 		demoActivityMappings.put("TypedCursor", TypedCursorActivity.class);
 		demoActivityMappings.put("Dynamic Binding", DynamicBindingActivity.class);
+		demoActivityMappings.put("BySubclass NoAspectJ", BySubclassNoAspectJActivity.class);
+		demoActivityMappings.put("ByInterface NoAspectJ", ByInterfaceNoAspectJActivity.class);
 
 		GalleryPresentationModel presentationModel = new GalleryPresentationModel(this, demoActivityMappings);
 		Binders.bind(this, R.layout.activity_gallery, presentationModel);

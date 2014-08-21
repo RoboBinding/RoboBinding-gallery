@@ -1,6 +1,8 @@
 package org.robobinding.gallery.presentationmodel;
 
-import org.robobinding.presentationmodel.PresentationModel;
+import org.robobinding.aspects.PresentationModel;
+
+
 
 /**
  *

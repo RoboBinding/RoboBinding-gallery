@@ -11,7 +11,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name="org.robobinding.gallery.activity.GalleryActivity"
+            android:name=".activity.GalleryActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,26 +20,33 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="org.robobinding.gallery.activity.ViewActivity" >
+        <activity android:name=".activity.ViewActivity" >
         </activity>
         
-        <activity android:name="org.robobinding.gallery.activity.EditTextActivity" >
+        <activity android:name=".activity.EditTextActivity" >
         </activity>
         
-        <activity android:name="org.robobinding.gallery.activity.ListViewActivity" >
+        <activity android:name=".activity.ListViewActivity" >
         </activity>
 
-        <activity android:name="org.robobinding.gallery.activity.AdapterViewActivity" >
+        <activity android:name=".activity.AdapterViewActivity" >
         </activity>
 
-        <activity android:name="org.robobinding.gallery.activity.CustomComponentActivity" >
+        <activity android:name=".activity.CustomComponentActivity" >
         </activity>
 
-        <activity android:name="org.robobinding.gallery.activity.TypedCursorActivity" >
+        <activity android:name=".activity.TypedCursorActivity" >
         </activity>
         
-        <activity android:name="org.robobinding.gallery.activity.DynamicBindingActivity" >
+        <activity android:name=".activity.DynamicBindingActivity" >
         </activity>
-    </application>
+ 
+		<activity android:name=".activity.ByInterfaceNoAspectJActivity" >
+        </activity>
+        
+		<activity android:name=".activity.BySubclassNoAspectJActivity" >
+        </activity>
+                
+	</application>
 
 </manifest>

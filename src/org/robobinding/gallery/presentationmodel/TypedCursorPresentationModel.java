@@ -1,13 +1,13 @@
 package org.robobinding.gallery.presentationmodel;
 
+import org.robobinding.annotation.ItemPresentationModel;
+import org.robobinding.aspects.PresentationModel;
 import org.robobinding.gallery.model.typedcursor.GetAllQuery;
 import org.robobinding.gallery.model.typedcursor.Product;
 import org.robobinding.gallery.model.typedcursor.ProductItemPresentationModel;
 import org.robobinding.gallery.model.typedcursor.ProductRowMapper;
 import org.robobinding.gallery.model.typedcursor.ProductTable;
 import org.robobinding.itempresentationmodel.TypedCursor;
-import org.robobinding.presentationmodel.ItemPresentationModel;
-import org.robobinding.presentationmodel.PresentationModel;
 
 import android.database.sqlite.SQLiteDatabase;
 

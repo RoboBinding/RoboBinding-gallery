@@ -17,15 +17,15 @@ package org.robobinding.gallery.presentationmodel;
 
 import java.util.List;
 
+import org.robobinding.annotation.DependsOnStateOf;
+import org.robobinding.annotation.ItemPresentationModel;
+import org.robobinding.aspects.PresentationModel;
 import org.robobinding.gallery.invocationlog.PublicMethodInvocationLog;
 import org.robobinding.gallery.model.Strings;
 import org.robobinding.gallery.model.adapterview.SampleStrings;
 import org.robobinding.gallery.model.listview.SampleStringsFooter;
 import org.robobinding.gallery.model.view.BooleanVisibility;
 import org.robobinding.gallery.model.view.IntegerVisibility;
-import org.robobinding.presentationmodel.DependsOnStateOf;
-import org.robobinding.presentationmodel.ItemPresentationModel;
-import org.robobinding.presentationmodel.PresentationModel;
 
 import android.util.SparseBooleanArray;
 

@@ -2,9 +2,9 @@ package org.robobinding.gallery.presentationmodel;
 
 import java.util.Map;
 
+import org.robobinding.aspects.PresentationModel;
 import org.robobinding.gallery.util.CircularIntegers;
 import org.robobinding.internal.guava.Maps;
-import org.robobinding.presentationmodel.PresentationModel;
 
 import android.view.View;
 
