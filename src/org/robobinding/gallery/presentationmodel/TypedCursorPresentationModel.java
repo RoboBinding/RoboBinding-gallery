@@ -5,8 +5,6 @@ import org.robobinding.aspects.PresentationModel;
 import org.robobinding.gallery.model.typedcursor.GetAllQuery;
 import org.robobinding.gallery.model.typedcursor.Product;
 import org.robobinding.gallery.model.typedcursor.ProductItemPresentationModel;
-import org.robobinding.gallery.model.typedcursor.ProductRowMapper;
-import org.robobinding.gallery.model.typedcursor.ProductTable;
 import org.robobinding.itempresentationmodel.TypedCursor;
 
 import android.database.sqlite.SQLiteDatabase;
@@ -19,16 +17,24 @@ import android.database.sqlite.SQLiteDatabase;
  */
 @PresentationModel
 public class TypedCursorPresentationModel {
-    private SQLiteDatabase db;
-    private GetAllQuery<Product> allProductsQuery;
+    private final SQLiteDatabase db;
+    private final GetAllQuery<Product> allProductsQuery;
+    private TypedCursor<Product> productCursor;
 
-    public TypedCursorPresentationModel(SQLiteDatabase db) {
+    public TypedCursorPresentationModel(SQLiteDatabase db, GetAllQuery<Product> allProductsQuery) {
 	this.db = db;
-	allProductsQuery = new GetAllQuery<Product>(ProductTable.TABLE_NAME, new ProductRowMapper());
+	this.allProductsQuery = allProductsQuery;
     }
 
     @ItemPresentationModel(value=ProductItemPresentationModel.class)
     public TypedCursor<Product> getProducts() {
-	return allProductsQuery.execute(db);
+	productCursor = allProductsQuery.execute(db);
+	return productCursor;
+    }
+    
+    public void cleanUp() {
+	if (productCursor != null) {
+	    productCursor.close();
+	}
     }
 }

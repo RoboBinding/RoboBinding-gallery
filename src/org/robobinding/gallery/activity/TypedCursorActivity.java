@@ -1,37 +1,44 @@
 package org.robobinding.gallery.activity;
 
-import org.robobinding.binder.Binders;
 import org.robobinding.gallery.R;
-import org.robobinding.gallery.model.typedcursor.DatabaseHelper;
+import org.robobinding.gallery.model.typedcursor.GetAllQuery;
+import org.robobinding.gallery.model.typedcursor.Product;
+import org.robobinding.gallery.model.typedcursor.ProductRowMapper;
+import org.robobinding.gallery.model.typedcursor.ProductTable;
 import org.robobinding.gallery.presentationmodel.TypedCursorPresentationModel;
 
-import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 /**
- *
+ * 
  * @since 1.0
  * @version $Revision: 1.0 $
  * @author Cheng Wei
  */
-public class TypedCursorActivity extends Activity
-{
-	private TypedCursorPresentationModel presentationModel;
-	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
+public class TypedCursorActivity extends AbstractActivity {
 
-		DatabaseHelper databaseHelper = new DatabaseHelper(this);
-		presentationModel = new TypedCursorPresentationModel(databaseHelper.getReadableDatabase());
-		Binders.bind(this, R.layout.activity_typed_cursor, presentationModel);
-	}
+    private TypedCursorPresentationModel presentationModel;
+    private SQLiteDatabase db;
 
-	@Override
-	protected void onResume()
-	{
-		super.onResume();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
 
-		presentationModel.refreshPresentationModel();
-	}
+	
+	GetAllQuery<Product> allProductsQuery = new GetAllQuery<Product>(ProductTable.TABLE_NAME, new ProductRowMapper());
+	db = getDatabaseHelper().getReadableDatabase();
+	presentationModel = new TypedCursorPresentationModel(db, allProductsQuery);
+
+	initializeContentView(R.layout.activity_typed_cursor, presentationModel);
+    }
+    
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        
+        presentationModel.cleanUp();
+        db.close();
+    }
+
 }

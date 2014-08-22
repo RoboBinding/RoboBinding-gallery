@@ -1,6 +1,6 @@
 package org.robobinding.gallery.activity;
 
-import org.robobinding.ActivityBinder;
+import org.robobinding.ViewBinder;
 import org.robobinding.binder.BinderFactory;
 import org.robobinding.binder.BinderFactoryBuilder;
 import org.robobinding.dynamicbinding.DynamicViewBinding;
@@ -11,10 +11,11 @@ import org.robobinding.widget.textview.TextViewBinding;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 /**
- *
+ * 
  * @since 1.0
  * @version $Revision: 1.0 $
  * @author Cheng Wei
@@ -27,20 +28,23 @@ public class DynamicBindingActivity extends Activity {
 	super.onCreate(savedInstanceState);
 
 	presentationModel = new DynamicBindingPresentationModel();
+
+	initializeContentView(R.layout.activity_dynamic_binding, presentationModel);
+    }
+
+    private void initializeContentView(int layoutId, Object presentationModel) {
+	ViewBinder viewBinder = createViewBinder();
+	View rootView = viewBinder.inflateAndBind(layoutId, presentationModel);
+	setContentView(rootView);
+    }
+
+    private ViewBinder createViewBinder() {
 	BinderFactoryBuilder binderFactoryBuilder = new BinderFactoryBuilder()
 		.add(new DynamicViewBinding().extend(TextView.class, new TextViewBinding())
 			.oneWayProperties("typeface"))
 		.add(new DynamicViewBinding().forView(CustomOrThirdPartyComponent.class)
-			.oneWayProperties("textAttribute"));
+			.oneWayProperties("textAttribute"));	
 	BinderFactory binderFactory = binderFactoryBuilder.build();
-	ActivityBinder activityBinder = binderFactory.createActivityBinder(this, true);
-	activityBinder.inflateAndBind(R.layout.activity_dynamic_binding, presentationModel);
-    }
-
-    @Override
-    protected void onResume() {
-	super.onResume();
-
-	presentationModel.refreshPresentationModel();
+	return binderFactory.createViewBinder(this);
     }
 }

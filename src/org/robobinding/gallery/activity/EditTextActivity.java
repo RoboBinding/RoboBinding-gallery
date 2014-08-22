@@ -1,10 +1,8 @@
 package org.robobinding.gallery.activity;
 
-import org.robobinding.binder.Binders;
 import org.robobinding.gallery.R;
 import org.robobinding.gallery.presentationmodel.EditTextPresentationModel;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 /**
@@ -13,7 +11,7 @@ import android.os.Bundle;
  * @version $Revision: 1.0 $
  * @author Cheng Wei
  */
-public class EditTextActivity extends Activity {
+public class EditTextActivity extends AbstractActivity {
     private EditTextPresentationModel presentationModel;
 
     @Override
@@ -21,13 +19,6 @@ public class EditTextActivity extends Activity {
 	super.onCreate(savedInstanceState);
 
 	presentationModel = new EditTextPresentationModel();
-	Binders.bind(this, R.layout.activity_edittext, presentationModel);
-    }
-
-    @Override
-    protected void onResume() {
-	super.onResume();
-
-	presentationModel.refreshPresentationModel();
+	initializeContentView(R.layout.activity_edittext, presentationModel);
     }
 }

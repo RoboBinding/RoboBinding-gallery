@@ -1,6 +1,6 @@
 package org.robobinding.gallery.activity;
 
-import org.robobinding.ActivityBinder;
+import org.robobinding.ViewBinder;
 import org.robobinding.binder.BinderFactory;
 import org.robobinding.binder.BinderFactoryBuilder;
 import org.robobinding.gallery.R;
@@ -10,6 +10,7 @@ import org.robobinding.gallery.presentationmodel.CustomComponentPresentationMode
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 
 /**
  *
@@ -24,11 +25,19 @@ public class CustomComponentActivity extends Activity {
 
         CustomComponentPresentationModel presentationModel = new CustomComponentPresentationModel();
 
-        BinderFactory binderFactory = new BinderFactoryBuilder()
-        	.mapView(TitleDescriptionBar.class, new TitleDescriptionBarBinding())
-        	.build();
-
-        ActivityBinder activityBinder = binderFactory.createActivityBinder(this, true);
-        activityBinder.inflateAndBind(R.layout.activity_custom_component, presentationModel);
+        initializeContentView(R.layout.activity_custom_component, presentationModel);
+    }
+    
+    private void initializeContentView(int layoutId, Object presentationModel) {
+	ViewBinder viewBinder = createViewBinder();
+	View rootView = viewBinder.inflateAndBind(layoutId, presentationModel);
+	setContentView(rootView);
+    }
+    
+    private ViewBinder createViewBinder() {
+	BinderFactory binderFactory = new BinderFactoryBuilder()
+		.mapView(TitleDescriptionBar.class, new TitleDescriptionBarBinding())
+		.build();
+	return binderFactory.createViewBinder(this);
     }
 }

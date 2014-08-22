@@ -1,10 +1,8 @@
 package org.robobinding.gallery.activity;
 
-import org.robobinding.binder.Binders;
 import org.robobinding.gallery.R;
 import org.robobinding.gallery.presentationmodel.ListViewPresentationModel;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 /**
@@ -13,7 +11,7 @@ import android.os.Bundle;
  * @version $Revision: 1.0 $
  * @author Cheng Wei
  */
-public class ListViewActivity extends Activity {
+public class ListViewActivity extends AbstractActivity {
     private ListViewPresentationModel presentationModel;
 
     @Override
@@ -21,13 +19,6 @@ public class ListViewActivity extends Activity {
 	super.onCreate(savedInstanceState);
 
 	presentationModel = new ListViewPresentationModel();
-	Binders.bind(this, R.layout.activity_list_view, presentationModel);
-    }
-
-    @Override
-    protected void onResume() {
-	super.onResume();
-
-	presentationModel.refreshPresentationModel();
+	initializeContentView(R.layout.activity_list_view, presentationModel);
     }
 }
