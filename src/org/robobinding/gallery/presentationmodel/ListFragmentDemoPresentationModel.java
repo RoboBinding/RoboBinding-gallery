@@ -5,7 +5,7 @@ import java.util.List;
 import org.robobinding.annotation.ItemPresentationModel;
 import org.robobinding.aspects.PresentationModel;
 import org.robobinding.gallery.activity.FragmentDemo;
-import org.robobinding.gallery.activity.FragmentDemoActivity;
+import org.robobinding.gallery.activity.ViewPagerActivity;
 import org.robobinding.gallery.model.Product;
 import org.robobinding.widget.adapterview.ItemClickEvent;
 
@@ -34,7 +34,7 @@ public class ListFragmentDemoPresentationModel {
     }
     
     public void viewProduct(ItemClickEvent event) {
-	Intent i = new Intent(activity, FragmentDemoActivity.class);
+	Intent i = new Intent(activity, ViewPagerActivity.class);
 	i.putExtra(FragmentDemo.EXTRA_PRODUCT_INDEX, event.getPosition());
 	activity.startActivity(i);
     }

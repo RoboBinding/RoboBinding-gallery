@@ -26,6 +26,10 @@ public class MemoryProductStore {
 	return products.get(index);
     }
     
+    public int size() {
+        return products.size();
+    }
+
     public static MemoryProductStore getInstance() {
 	return uniqueInstance;
     }

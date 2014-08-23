@@ -51,7 +51,7 @@
 		<activity android:name=".activity.ListFragmentDemoActivity" >
         </activity>
         
-		<activity android:name=".activity.FragmentDemoActivity" >
+		<activity android:name=".activity.ViewPagerActivity" >
         </activity>
                 
 	</application>

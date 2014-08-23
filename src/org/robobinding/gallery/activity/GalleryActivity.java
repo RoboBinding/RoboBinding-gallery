@@ -30,7 +30,7 @@ public class GalleryActivity extends AbstractActivity {
 	demoActivityMappings.put("Dynamic Binding", DynamicBindingActivity.class);
 	demoActivityMappings.put("BySubclass NoAspectJ", BySubclassNoAspectJActivity.class);
 	demoActivityMappings.put("ByInterface NoAspectJ", ByInterfaceNoAspectJActivity.class);
-	demoActivityMappings.put("Fragment", ListFragmentDemoActivity.class);
+	demoActivityMappings.put("Fragment & ViewPager", ListFragmentDemoActivity.class);
 
 	GalleryPresentationModel presentationModel = new GalleryPresentationModel(this, demoActivityMappings);
 	initializeContentView(R.layout.activity_gallery, presentationModel);
