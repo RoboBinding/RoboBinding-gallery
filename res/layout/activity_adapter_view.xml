@@ -28,9 +28,9 @@
 	  		android:layout_height="wrap_content"
 	  		android:prompt="@string/sources"
 	  		bind:itemLayout="@android:layout/simple_spinner_item"
-	  		bind:itemMapping="[text1.text:{name}]"
+	  		bind:itemMapping="[text1.text:{value}]"
 	  		bind:dropdownLayout="@android:layout/simple_spinner_dropdown_item"
-	  		bind:dropdownMapping="[text1.text:{name}]"
+	  		bind:dropdownMapping="[text1.text:{value}]"
 	  		bind:source="{sources}"
 	  		bind:selectedItemPosition="${selectedSourceIndex}"/>
     </LinearLayout>
@@ -60,9 +60,9 @@
 	  		android:layout_height="wrap_content"
 	  		android:prompt="@string/item_layouts"
 	  		bind:itemLayout="@android:layout/simple_spinner_item"
-	  		bind:itemMapping="[text1.text:{name}]"
+	  		bind:itemMapping="[text1.text:{value}]"
 	  		bind:dropdownLayout="@android:layout/simple_spinner_dropdown_item"
-	  		bind:dropdownMapping="[text1.text:{name}]"
+	  		bind:dropdownMapping="[text1.text:{value}]"
 	  		bind:source="{itemLayouts}"
 	  		bind:selectedItemPosition="${selectedItemLayoutIndex}"/>
     </LinearLayout>

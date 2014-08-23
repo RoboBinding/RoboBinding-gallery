@@ -3,7 +3,6 @@ package org.robobinding.gallery.model.adapterview;
 import java.util.Collections;
 import java.util.List;
 
-import org.robobinding.gallery.model.HasName;
 import org.robobinding.internal.guava.Lists;
 
 /**
@@ -12,7 +11,7 @@ import org.robobinding.internal.guava.Lists;
  * @version $Revision: 1.0 $
  * @author Cheng Wei
  */
-public enum SampleStringType implements HasName
+public enum SampleStringType
 {
 	SAMPLE1("Sample strings 1", SampleStrings.getSample1()),
 	SAMPLE2("Sample strings 2", SampleStrings.getSample2());
@@ -27,7 +26,7 @@ public enum SampleStringType implements HasName
 	}
 
 	@Override
-	public String getName()
+	public String toString()
 	{
 		return name;
 	}

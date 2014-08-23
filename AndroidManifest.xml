@@ -47,6 +47,12 @@
         
 		<activity android:name=".activity.BySubclassNoAspectJActivity" >
         </activity>
+        
+		<activity android:name=".activity.ListFragmentDemoActivity" >
+        </activity>
+        
+		<activity android:name=".activity.FragmentDemoActivity" >
+        </activity>
                 
 	</application>
 

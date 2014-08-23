@@ -2,6 +2,7 @@ package org.robobinding.gallery.model.typedcursor;
 
 import java.text.MessageFormat;
 
+import org.robobinding.gallery.model.Product;
 import org.robobinding.itempresentationmodel.ItemPresentationModel;
 
 /**

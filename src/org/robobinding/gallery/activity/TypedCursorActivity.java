@@ -1,8 +1,8 @@
 package org.robobinding.gallery.activity;
 
 import org.robobinding.gallery.R;
+import org.robobinding.gallery.model.Product;
 import org.robobinding.gallery.model.typedcursor.GetAllQuery;
-import org.robobinding.gallery.model.typedcursor.Product;
 import org.robobinding.gallery.model.typedcursor.ProductRowMapper;
 import org.robobinding.gallery.model.typedcursor.ProductTable;
 import org.robobinding.gallery.presentationmodel.TypedCursorPresentationModel;

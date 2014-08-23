@@ -1,6 +1,10 @@
 package org.robobinding.gallery.model.typedcursor;
 
 import java.text.MessageFormat;
+import java.util.List;
+
+import org.robobinding.gallery.model.Product;
+import org.robobinding.gallery.model.TestData;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -26,9 +30,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		ProductTable.TABLE_NAME, ProductTable._ID, ProductTable.NAME, ProductTable.DESCRIPTION);
 	db.execSQL(itemTable);
 
-	insertProduct(db, new Product("product1", "description for product1"));
-	insertProduct(db, new Product("product2", "description for product2"));
-	insertProduct(db, new Product("product3", "description for product3"));
+	List<Product> products = TestData.products();
+	for(Product product : products) {
+	    insertProduct(db, product);
+	}
     }
 
     private long insertProduct(SQLiteDatabase db, Product product) {

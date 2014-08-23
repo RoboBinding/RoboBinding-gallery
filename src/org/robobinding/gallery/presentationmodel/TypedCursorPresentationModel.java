@@ -2,8 +2,8 @@ package org.robobinding.gallery.presentationmodel;
 
 import org.robobinding.annotation.ItemPresentationModel;
 import org.robobinding.aspects.PresentationModel;
+import org.robobinding.gallery.model.Product;
 import org.robobinding.gallery.model.typedcursor.GetAllQuery;
-import org.robobinding.gallery.model.typedcursor.Product;
 import org.robobinding.gallery.model.typedcursor.ProductItemPresentationModel;
 import org.robobinding.itempresentationmodel.TypedCursor;
 

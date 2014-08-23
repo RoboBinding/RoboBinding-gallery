@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.robobinding.gallery.R;
-import org.robobinding.gallery.model.HasName;
 import org.robobinding.internal.guava.Lists;
 
 /**
@@ -13,7 +12,7 @@ import org.robobinding.internal.guava.Lists;
  * @version $Revision: 1.0 $
  * @author Cheng Wei
  */
-public enum StringItemLayout implements HasName
+public enum StringItemLayout
 {
 	item_layout1("Item layout 1", R.layout.string_item_layout1),
 	item_layout2("Item layout 2", R.layout.string_item_layout2);
@@ -28,7 +27,7 @@ public enum StringItemLayout implements HasName
 	}
 
 	@Override
-	public String getName()
+	public String toString()
 	{
 		return name;
 	}

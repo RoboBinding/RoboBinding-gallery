@@ -38,7 +38,7 @@ public class AdapterViewPresentationModel implements PublicMethodInvocationLog {
 	return getSelectedSource().getSample();
     }
 
-    @ItemPresentationModel(value = NameItemPresentationModel.class)
+    @ItemPresentationModel(value = ToStringItemPresentationModel.class)
     public List<SampleStringType> getSources() {
 	return SampleStringType.types();
     }
@@ -65,7 +65,7 @@ public class AdapterViewPresentationModel implements PublicMethodInvocationLog {
 	return SampleStrings.getSample();
     }
 
-    @ItemPresentationModel(value = NameItemPresentationModel.class)
+    @ItemPresentationModel(value = ToStringItemPresentationModel.class)
     public List<StringItemLayout> getItemLayouts() {
 	return StringItemLayout.itemLayouts();
     }

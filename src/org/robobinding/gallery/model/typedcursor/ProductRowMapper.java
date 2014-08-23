@@ -1,5 +1,6 @@
 package org.robobinding.gallery.model.typedcursor;
 
+import org.robobinding.gallery.model.Product;
 import org.robobinding.itempresentationmodel.RowMapper;
 
 import android.database.Cursor;
