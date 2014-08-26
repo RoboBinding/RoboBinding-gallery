@@ -1,6 +1,6 @@
 <resources>
 	<declare-styleable name="TitleDescriptionBar">
-		<attr name="title" format="reference|string"/>
+	    <attr name="title"/>
 		<attr name="description" format="reference|string"/>
 	</declare-styleable>
 </resources>

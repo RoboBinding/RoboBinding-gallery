@@ -18,7 +18,8 @@
   		bind:dropdownLayout="@android:layout/simple_spinner_dropdown_item"
   		bind:dropdownMapping="[text1.text:{value}]"
   		bind:source="{demoList}"
-  		bind:selectedItemPosition="${selectedDemoIndex}"/>
+  		bind:selectedItemPosition="${selectedDemoIndex}"
+  		android:id="@+id/demoSpinner"/>
 	
 	<Button 
 	    android:layout_width="fill_parent"

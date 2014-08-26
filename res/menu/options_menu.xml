@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://robobinding.org/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item bind:title="{title}"
+          bind:enabled="{enabled}"
+          bind:visible="{visible}"
+          bind:onMenuItemClick="toggleTitle"
+          android:id="@+id/boundItem1"
+          app:showAsAction="always"/>
+    <group bind:enabled="{groupEnabled}"
+		bind:visible="{groupVisible}"
+		android:id="@+id/boundGroup1">
+        <item android:title="option1" app:showAsAction="always"/>
+        <item android:title="option2" app:showAsAction="always"/>
+    </group>
+</menu>

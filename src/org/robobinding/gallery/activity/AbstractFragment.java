@@ -1,9 +1,12 @@
 package org.robobinding.gallery.activity;
 
+import org.robobinding.MenuBinder;
 import org.robobinding.ViewBinder;
 import org.robobinding.binder.BinderFactory;
 
 import android.support.v4.app.Fragment;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 /**
  *
@@ -13,11 +16,21 @@ import android.support.v4.app.Fragment;
  */
 public abstract class AbstractFragment extends Fragment {
     protected ViewBinder createViewBinder() {
-	BinderFactory binderFactory = getGalleryApp().getReusableBinderFactory();
+	BinderFactory binderFactory = getReusableBinderFactory();
 	return binderFactory.createViewBinder(getActivity());
+    }
+
+    private BinderFactory getReusableBinderFactory() {
+	BinderFactory binderFactory = getGalleryApp().getReusableBinderFactory();
+	return binderFactory;
     }
     
     private GalleryApp getGalleryApp() {
 	return (GalleryApp)getActivity().getApplicationContext();
+    }
+    
+    protected MenuBinder createMenuBinder(Menu menu, MenuInflater menuInflater) {
+	BinderFactory binderFactory = getReusableBinderFactory();
+	return binderFactory.createMenuBinder(menu, menuInflater, getActivity());
     }
 }

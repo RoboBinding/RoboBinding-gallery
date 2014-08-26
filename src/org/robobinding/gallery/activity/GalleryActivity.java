@@ -31,6 +31,9 @@ public class GalleryActivity extends AbstractActivity {
 	demoActivityMappings.put("BySubclass NoAspectJ", BySubclassNoAspectJActivity.class);
 	demoActivityMappings.put("ByInterface NoAspectJ", ByInterfaceNoAspectJActivity.class);
 	demoActivityMappings.put("Fragment & ViewPager", ListFragmentDemoActivity.class);
+	demoActivityMappings.put("Options Menu", OptionsMenuActivity.class);
+	demoActivityMappings.put("Context Menu", ContextMenuDemoActivity.class);
+	demoActivityMappings.put("Contextual Action Mode", ContextualActionModeActivity.class);
 
 	GalleryPresentationModel presentationModel = new GalleryPresentationModel(this, demoActivityMappings);
 	initializeContentView(R.layout.activity_gallery, presentationModel);

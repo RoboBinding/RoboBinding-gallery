@@ -18,12 +18,20 @@ public class MemoryProductStore {
 	this.products = TestData.products();
     }
     
+    public void reset() {
+	this.products = TestData.products();
+    }
+    
     public List<Product> getAll() {
 	return Collections.unmodifiableList(products);
     }
     
     public Product getByIndex(int index) {
 	return products.get(index);
+    }
+    
+    public Product remove(int index) {
+	return products.remove(index);
     }
     
     public int size() {

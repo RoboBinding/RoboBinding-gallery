@@ -6,3 +6,5 @@
 /.project
 /lint.xml
 /proguard
+/lib/appcompat_v7
+/robobinding-gallery-test

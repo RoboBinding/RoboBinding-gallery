@@ -25,6 +25,7 @@ public class ListFragmentDemo extends AbstractFragment {
         super.onCreate(savedInstanceState);
 
         MemoryProductStore productStore = MemoryProductStore.getInstance();
+        productStore.reset();
         presentationModel = new ListFragmentDemoPresentationModel(getActivity(), productStore.getAll());
     }
     
