@@ -3,13 +3,13 @@ buildscript {
 		mavenCentral()
 		maven() {
 			name 'RoboBinding AspectJPlugin Maven Repository'
-			url "file://D:/windows7/eclipse-java-luna-R-win32/workspace/AspectJPlugin/mavenRepo"
+			url "https://github.com/RoboBinding/RoboBinding-aspectj-plugin/raw/master/mavenRepo"
 		}
 	}
 
 	dependencies {
 		classpath 'com.android.tools.build:gradle:0.12.2'
-		classpath 'org.robobinding:aspectj-plugin:1.0'
+		classpath 'org.robobinding:aspectj-plugin:0.8.+'
 	}
 }
 
