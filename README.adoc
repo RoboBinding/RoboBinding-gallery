@@ -1,1 +1,3 @@
 An android app to showcase the usage of https://github.com/RoboBinding/RoboBinding[RoboBinding] framework.
+
+The project can be directly imported into Android Studio.

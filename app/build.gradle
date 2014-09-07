@@ -1,0 +1,62 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		maven() {
+			name 'RoboBinding AspectJPlugin Maven Repository'
+			url "file://D:/windows7/eclipse-java-luna-R-win32/workspace/AspectJPlugin/mavenRepo"
+		}
+	}
+
+	dependencies {
+		classpath 'com.android.tools.build:gradle:0.12.2'
+		classpath 'org.robobinding:aspectj-plugin:1.0'
+	}
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'org.robobinding.android-aspectj'
+
+android {
+	compileSdkVersion 19
+	buildToolsVersion "20.0.0"
+	
+	defaultConfig {
+		minSdkVersion 8
+		targetSdkVersion 19
+	}
+	
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_7
+		targetCompatibility JavaVersion.VERSION_1_7
+	}
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        disable 'UnusedAttribute', 'ValidFragment', 'GradleDependency', 'OnClick', 'MissingPrefix', 'MenuTitle'
+    }
+}
+
+repositories {
+	mavenCentral()
+	maven() {
+		name 'SonaType snapshot repository'
+		url 'https://oss.sonatype.org/content/repositories/snapshots'
+	}
+}
+
+ext {
+	robobindingVersion = 'latest.integration'
+	//robobindingVersion = '0.8.6-SNAPSHOT'
+}
+
+dependencies {
+	compile "org.robobinding:robobinding:${robobindingVersion}"
+    compile 'com.android.support:appcompat-v7:20.0.0'
+    aspectPath "org.robobinding:robobinding:${robobindingVersion}"
+}
