@@ -4,6 +4,7 @@ buildscript {
 		maven() {
 			name 'RoboBinding AspectJPlugin Maven Repository'
 			url "https://github.com/RoboBinding/RoboBinding-aspectj-plugin/raw/master/mavenRepo"
+			//url "file://D:/git/RoboBinding-aspectj-plugin/mavenRepo"
 		}
 	}
 
@@ -23,11 +24,13 @@ android {
 	defaultConfig {
 		minSdkVersion 8
 		targetSdkVersion 19
+
+        testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
 	}
 	
 	compileOptions {
-		sourceCompatibility JavaVersion.VERSION_1_7
-		targetCompatibility JavaVersion.VERSION_1_7
+		sourceCompatibility JavaVersion.VERSION_1_6
+		targetCompatibility JavaVersion.VERSION_1_6
 	}
 
     buildTypes {
@@ -59,4 +62,7 @@ dependencies {
 	compile "org.robobinding:robobinding:${robobindingVersion}"
     compile 'com.android.support:appcompat-v7:20.0.0'
     aspectPath "org.robobinding:robobinding:${robobindingVersion}"
+
+    androidTestCompile 'com.jakewharton.espresso:espresso:1.1-r3'
+    androidTestCompile 'com.jakewharton.espresso:espresso-support-v4:1.1-r3'
 }
