@@ -1,10 +1,11 @@
 package org.robobinding.gallery.model.adapterview;
 
+import com.google.common.collect.Lists;
+
 import java.util.Collections;
 import java.util.List;
 
 import org.robobinding.gallery.R;
-import org.robobinding.internal.guava.Lists;
 
 /**
  *

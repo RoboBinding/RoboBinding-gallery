@@ -4,9 +4,11 @@ import java.util.Map;
 
 import org.robobinding.aspects.PresentationModel;
 import org.robobinding.gallery.util.CircularIntegers;
-import org.robobinding.internal.guava.Maps;
+import org.robobinding.presentationmodel.PresentationModelChangeSupport;
 
 import android.graphics.Typeface;
+
+import com.google.common.collect.Maps;
 
 /**
  *
@@ -16,10 +18,12 @@ import android.graphics.Typeface;
  */
 @PresentationModel
 public class DynamicBindingPresentationModel {
+    private final PresentationModelChangeSupport changeSupport;
     private CircularIntegers typefaceRotation;
     private Map<Integer, String> typefaceDescriptions;
     
     public DynamicBindingPresentationModel() {
+        changeSupport = new PresentationModelChangeSupport(this);
 	typefaceRotation = new CircularIntegers(Typeface.BOLD, Typeface.NORMAL);
 	
 	typefaceDescriptions = Maps.newHashMap();
@@ -33,8 +37,8 @@ public class DynamicBindingPresentationModel {
     
     public void changeTypeface() {
 	typefaceRotation.next();
-	firePropertyChange("typeface");
-	firePropertyChange("typefaceDescription");
+	changeSupport.firePropertyChange("typeface");
+	changeSupport.firePropertyChange("typefaceDescription");
     }
     
     public String getTypefaceDescription() {

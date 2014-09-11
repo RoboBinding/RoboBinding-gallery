@@ -6,8 +6,6 @@
  */
 package org.robobinding.gallery.model.typedcursor;
 
-import org.robobinding.internal.guava.Preconditions;
-import org.robobinding.internal.guava.Strings;
 import org.robobinding.itempresentationmodel.RowMapper;
 import org.robobinding.itempresentationmodel.TypedCursor;
 import org.robobinding.itempresentationmodel.TypedCursorAdapter;
@@ -15,6 +13,9 @@ import org.robobinding.itempresentationmodel.TypedCursorAdapter;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
+
+import com.google.common.base.Preconditions;
+import com.google.common.base.Strings;
 
 /**
  * @since 1.0

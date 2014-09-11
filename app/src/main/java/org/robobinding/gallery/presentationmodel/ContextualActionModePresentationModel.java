@@ -10,6 +10,7 @@ import org.robobinding.annotation.ItemPresentationModel;
 import org.robobinding.aspects.PresentationModel;
 import org.robobinding.gallery.model.MemoryProductStore;
 import org.robobinding.gallery.model.Product;
+import org.robobinding.presentationmodel.PresentationModelChangeSupport;
 
 /**
  *
@@ -19,11 +20,13 @@ import org.robobinding.gallery.model.Product;
  */
 @PresentationModel
 public class ContextualActionModePresentationModel {
-    private MemoryProductStore productStore;
+    private final MemoryProductStore productStore;
+    private final PresentationModelChangeSupport changeSupport;
     private Set<Integer> selectedProductIndexes;
     
     public ContextualActionModePresentationModel(MemoryProductStore productStore) {
 	this.productStore = productStore;
+        changeSupport = new PresentationModelChangeSupport(this);
 	selectedProductIndexes = new HashSet<Integer>();
     }
     
@@ -45,8 +48,8 @@ public class ContextualActionModePresentationModel {
     }
 
     private void refreshProducts() {
-	firePropertyChange("selectedProductIndexes");
-	firePropertyChange("products");
+	changeSupport.firePropertyChange("selectedProductIndexes");
+	changeSupport.firePropertyChange("products");
     }
 
     public Set<Integer> getSelectedProductIndexes() {

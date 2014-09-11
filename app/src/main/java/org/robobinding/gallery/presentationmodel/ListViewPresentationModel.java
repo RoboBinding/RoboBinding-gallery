@@ -26,6 +26,7 @@ import org.robobinding.gallery.model.adapterview.SampleStrings;
 import org.robobinding.gallery.model.listview.SampleStringsFooter;
 import org.robobinding.gallery.model.view.BooleanVisibility;
 import org.robobinding.gallery.model.view.IntegerVisibility;
+import org.robobinding.presentationmodel.PresentationModelChangeSupport;
 
 import android.util.SparseBooleanArray;
 
@@ -41,7 +42,9 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 	private static final String FOOTER_INTEGER_VISIBILITY = "footerIntegerVisibility";
 
 	private static final String HEADER_BOOLEAN_VISIBILITY = "headerBooleanVisibility";
-	
+
+    private final PresentationModelChangeSupport changeSupport;
+
 	private BooleanVisibility headerBooleanVisibility;
 	
 	private IntegerVisibility footerIntegerVisibility;
@@ -51,6 +54,7 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 	
 	public ListViewPresentationModel()
 	{
+        changeSupport = new PresentationModelChangeSupport(this);
 		headerBooleanVisibility = new BooleanVisibility();
 		
 		footerIntegerVisibility = new IntegerVisibility();
@@ -74,7 +78,7 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 	public void changeHeaderVisibility()
 	{
 		headerBooleanVisibility.nextState();
-		firePropertyChange(HEADER_BOOLEAN_VISIBILITY);
+		changeSupport.firePropertyChange(HEADER_BOOLEAN_VISIBILITY);
 	}
 	
 	@DependsOnStateOf(HEADER_BOOLEAN_VISIBILITY)
@@ -96,7 +100,7 @@ public class ListViewPresentationModel implements PublicMethodInvocationLog
 	public void changeFooterVisibility()
 	{
 		footerIntegerVisibility.nextState();
-		firePropertyChange(FOOTER_INTEGER_VISIBILITY);
+		changeSupport.firePropertyChange(FOOTER_INTEGER_VISIBILITY);
 	}
 	
 	@DependsOnStateOf(FOOTER_INTEGER_VISIBILITY)

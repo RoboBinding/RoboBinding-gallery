@@ -6,11 +6,12 @@ import java.util.Map;
 import org.robobinding.annotation.DependsOnStateOf;
 import org.robobinding.annotation.ItemPresentationModel;
 import org.robobinding.aspects.PresentationModel;
-import org.robobinding.internal.guava.Lists;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+
+import com.google.common.collect.Lists;
 
 /**
  * 

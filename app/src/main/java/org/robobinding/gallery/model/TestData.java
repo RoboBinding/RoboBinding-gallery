@@ -1,9 +1,9 @@
 package org.robobinding.gallery.model;
 
+import com.google.common.collect.Lists;
+
 import java.util.List;
 import java.util.Random;
-
-import org.robobinding.internal.guava.Lists;
 
 /**
  *

@@ -59,9 +59,9 @@ ext {
 }
 
 dependencies {
-	compile "org.robobinding:robobinding:${robobindingVersion}"
+	compile "org.robobinding:robobinding:${robobindingVersion}:with-aop"
     compile 'com.android.support:appcompat-v7:20.0.0'
-    aspectPath "org.robobinding:robobinding:${robobindingVersion}"
+    aspectPath "org.robobinding:robobinding:${robobindingVersion}:with-aop"
 
     androidTestCompile 'com.jakewharton.espresso:espresso:1.1-r3'
     androidTestCompile 'com.jakewharton.espresso:espresso-support-v4:1.1-r3'

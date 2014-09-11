@@ -1,6 +1,7 @@
 package org.robobinding.gallery.presentationmodel;
 
 import org.robobinding.aspects.PresentationModel;
+import org.robobinding.presentationmodel.PresentationModelChangeSupport;
 
 
 /**
@@ -11,12 +12,14 @@ import org.robobinding.aspects.PresentationModel;
  */
 @PresentationModel
 public class CustomComponentPresentationModel {
+    private final PresentationModelChangeSupport changeSupport;
     private String title;
     private String description;
     private String newTitle;
     private String newDescription;
 
     public CustomComponentPresentationModel() {
+        changeSupport = new PresentationModelChangeSupport(this);
 	this.title = "Default title";
 	this.description = "Default description";
     }
@@ -49,7 +52,7 @@ public class CustomComponentPresentationModel {
 	title = newTitle;
 	description = newDescription;
 
-	firePropertyChange("title");
-	firePropertyChange("description");
+	changeSupport.firePropertyChange("title");
+	changeSupport.firePropertyChange("description");
     }
 }

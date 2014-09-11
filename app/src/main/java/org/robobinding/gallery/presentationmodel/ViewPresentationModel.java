@@ -4,9 +4,12 @@ import java.util.Map;
 
 import org.robobinding.aspects.PresentationModel;
 import org.robobinding.gallery.util.CircularIntegers;
-import org.robobinding.internal.guava.Maps;
+import org.robobinding.presentationmodel.PresentationModelChangeSupport;
 
+import android.app.Presentation;
 import android.view.View;
+
+import com.google.common.collect.Maps;
 
 /**
  *
@@ -17,9 +20,11 @@ import android.view.View;
 @PresentationModel
 public class ViewPresentationModel
 {
+    private PresentationModelChangeSupport changeSupport;
     private CircularIntegers integerVisibilityRotation;
     private Map<Integer, String> integerVisibilityDescriptions;
     public ViewPresentationModel() {
+        changeSupport = new PresentationModelChangeSupport(this);
 	integerVisibilityRotation = new CircularIntegers(View.VISIBLE, View.INVISIBLE, View.GONE);
 	
 	integerVisibilityDescriptions = Maps.newHashMap();
@@ -38,7 +43,7 @@ public class ViewPresentationModel
     
     public void integerVisibilityStateNext() {
 	integerVisibilityRotation.next();
-	firePropertyChange("integerVisibilityState");
-	firePropertyChange("integerVisibility");
+        changeSupport.firePropertyChange("integerVisibilityState");
+        changeSupport.firePropertyChange("integerVisibility");
     }
 }

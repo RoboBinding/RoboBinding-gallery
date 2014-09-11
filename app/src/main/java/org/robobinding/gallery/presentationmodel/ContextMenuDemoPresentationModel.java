@@ -7,6 +7,7 @@ import org.robobinding.aspects.PresentationModel;
 import org.robobinding.gallery.model.MemoryProductStore;
 import org.robobinding.gallery.model.Product;
 import org.robobinding.gallery.presentationmodel.ContextMenuPresentationModel.ProductOperationListener;
+import org.robobinding.presentationmodel.PresentationModelChangeSupport;
 
 /**
  *
@@ -16,10 +17,12 @@ import org.robobinding.gallery.presentationmodel.ContextMenuPresentationModel.Pr
  */
 @PresentationModel
 public class ContextMenuDemoPresentationModel implements ProductOperationListener {
-    private MemoryProductStore productStore;
+    private final MemoryProductStore productStore;
+    private final PresentationModelChangeSupport changeSupport;
     
     public ContextMenuDemoPresentationModel(MemoryProductStore productStore) {
 	this.productStore = productStore;
+        changeSupport = new PresentationModelChangeSupport(this);
     }
     
     @ItemPresentationModel(value=ToStringItemPresentationModel.class)
@@ -33,7 +36,7 @@ public class ContextMenuDemoPresentationModel implements ProductOperationListene
     }
 
     private void refreshProducts() {
-	firePropertyChange("products");
+	changeSupport.firePropertyChange("products");
     }
 
 }
