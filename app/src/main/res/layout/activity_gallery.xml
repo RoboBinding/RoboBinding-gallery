@@ -25,5 +25,6 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    bind:text="{selectedDemoDescription}"
-	    bind:onClick="showDemo"/>
+	    bind:onClick="showDemo"
+        android:id="@+id/showDemoButton"/>
 </LinearLayout>
