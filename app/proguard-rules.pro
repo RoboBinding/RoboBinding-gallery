@@ -56,6 +56,11 @@
   public static final android.os.Parcelable$Creator *;
 }
 
+-dontwarn sun.misc.Unsafe
+
+##########################
+### For robobinding
+##########################
 -keepattributes *Annotation*,Signature
 
 -keep class * implements org.robobinding.property.ObservableBean {
@@ -73,3 +78,4 @@
 }
 
 -dontwarn android.widget.AbsListView, android.view.View
+-dontwarn javax.annotation.**

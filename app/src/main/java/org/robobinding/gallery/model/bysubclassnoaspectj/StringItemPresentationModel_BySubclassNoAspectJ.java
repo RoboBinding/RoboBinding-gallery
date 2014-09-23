@@ -1,6 +1,7 @@
 package org.robobinding.gallery.model.bysubclassnoaspectj;
 
-import org.robobinding.itempresentationmodel.AbstractItemPresentationModel;
+import org.robobinding.itempresentationmodel.ItemPresentationModel;
+import org.robobinding.presentationmodel.AbstractPresentationModel;
 
 /**
  * 
@@ -8,11 +9,11 @@ import org.robobinding.itempresentationmodel.AbstractItemPresentationModel;
  * @version $Revision: 1.0 $
  * @author Cheng Wei
  */
-public class StringItemPresentationModel_BySubclassNoAspectJ extends AbstractItemPresentationModel<String> {
+public class StringItemPresentationModel_BySubclassNoAspectJ extends AbstractPresentationModel implements ItemPresentationModel<String> {
     private String value;
 
     @Override
-    protected void doUpdateData(int index, String bean) {
+    public void updateData(int index, String bean) {
 	value = bean;
     }
 
