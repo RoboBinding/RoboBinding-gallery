@@ -32,6 +32,6 @@ public class ListFragmentDemo extends AbstractFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 	ViewBinder viewBinder = createViewBinder();
-	return viewBinder.inflateAndBind(R.layout.fragment_list_demo, presentationModel);
+	return viewBinder.inflateAndBindWithoutAttachingToRoot(R.layout.fragment_list_demo, presentationModel, container);
     }
 }

@@ -36,7 +36,7 @@ public class FragmentDemo extends AbstractFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewBinder viewBinder = createViewBinder();
-        return viewBinder.inflateAndBind(R.layout.fragment_demo, presentationModel);
+        return viewBinder.inflateAndBindWithoutAttachingToRoot(R.layout.fragment_demo, presentationModel, container);
     }
     
     public static FragmentDemo newInstance(int productIndex) {
