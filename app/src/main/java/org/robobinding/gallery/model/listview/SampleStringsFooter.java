@@ -1,6 +1,6 @@
 package org.robobinding.gallery.model.listview;
 
-import org.robobinding.aspects.PresentationModel;
+import org.robobinding.annotation.PresentationModel;
 import org.robobinding.gallery.model.adapterview.SampleStrings;
 
 import android.text.Html;

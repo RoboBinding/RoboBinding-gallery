@@ -19,125 +19,114 @@ import java.util.List;
 
 import org.robobinding.annotation.DependsOnStateOf;
 import org.robobinding.annotation.ItemPresentationModel;
-import org.robobinding.aspects.PresentationModel;
+import org.robobinding.annotation.PresentationModel;
 import org.robobinding.gallery.invocationlog.PublicMethodInvocationLog;
 import org.robobinding.gallery.model.Strings;
 import org.robobinding.gallery.model.adapterview.SampleStrings;
 import org.robobinding.gallery.model.listview.SampleStringsFooter;
 import org.robobinding.gallery.model.view.BooleanVisibility;
 import org.robobinding.gallery.model.view.IntegerVisibility;
+import org.robobinding.presentationmodel.HasPresentationModelChangeSupport;
 import org.robobinding.presentationmodel.PresentationModelChangeSupport;
 
 import android.util.SparseBooleanArray;
 
 /**
- *
- * @since 1.0
- * @version $Revision: 1.0 $
  * @author Cheng Wei
+ * @version $Revision: 1.0 $
+ * @since 1.0
  */
 @PresentationModel
-public class ListViewPresentationModel implements PublicMethodInvocationLog
-{
-	private static final String FOOTER_INTEGER_VISIBILITY = "footerIntegerVisibility";
+public class ListViewPresentationModel implements HasPresentationModelChangeSupport, PublicMethodInvocationLog {
+    private static final String FOOTER_INTEGER_VISIBILITY = "footerIntegerVisibility";
 
-	private static final String HEADER_BOOLEAN_VISIBILITY = "headerBooleanVisibility";
+    private static final String HEADER_BOOLEAN_VISIBILITY = "headerBooleanVisibility";
 
     private final PresentationModelChangeSupport changeSupport;
 
-	private BooleanVisibility headerBooleanVisibility;
-	
-	private IntegerVisibility footerIntegerVisibility;
-	
-	private SparseBooleanArray checkedItemPositions;
-	private int checkedItemPosition;
-	
-	public ListViewPresentationModel()
-	{
+    private BooleanVisibility headerBooleanVisibility;
+
+    private IntegerVisibility footerIntegerVisibility;
+
+    private SparseBooleanArray checkedItemPositions;
+    private int checkedItemPosition;
+
+    public ListViewPresentationModel() {
         changeSupport = new PresentationModelChangeSupport(this);
-		headerBooleanVisibility = new BooleanVisibility();
-		
-		footerIntegerVisibility = new IntegerVisibility();
-		
-		checkedItemPositions = new SparseBooleanArray();
-		checkedItemPositions.append(0, true);
-		checkedItemPosition = 0;
-	}
-	
-	@ItemPresentationModel(value=StringItemPresentationModel.class)
-	public List<String> getStrings()
-	{
-		return SampleStrings.getSample();
-	}
-	
-	public boolean getHeaderBooleanVisibility()
-	{
-		return headerBooleanVisibility.getValue();
-	}
-	
-	public void changeHeaderVisibility()
-	{
-		headerBooleanVisibility.nextState();
-		changeSupport.firePropertyChange(HEADER_BOOLEAN_VISIBILITY);
-	}
-	
-	@DependsOnStateOf(HEADER_BOOLEAN_VISIBILITY)
-	public String getHeaderBooleanVisibilityDescription()
-	{
-		return "Header "+headerBooleanVisibility.describe("visible", "invisible");
-	}
-	
-	public SampleStringsFooter getFooter()
-	{
-		return SampleStringsFooter.getInstance();
-	}
-	
-	public int getFooterIntegerVisibility()
-	{
-		return footerIntegerVisibility.getValue();
-	}
-	
-	public void changeFooterVisibility()
-	{
-		footerIntegerVisibility.nextState();
-		changeSupport.firePropertyChange(FOOTER_INTEGER_VISIBILITY);
-	}
-	
-	@DependsOnStateOf(FOOTER_INTEGER_VISIBILITY)
-	public String getFooterIntegerVisibilityDescription()
-	{
-		return "Footer "+footerIntegerVisibility.describe("visible", "invisible", "gone");
-	}
-	
-	public int getCheckedItemPosition()
-	{
-		return checkedItemPosition;
-	}
+        headerBooleanVisibility = new BooleanVisibility();
 
-	public void setCheckedItemPosition(int checkedItemPosition)
-	{
-		this.checkedItemPosition = checkedItemPosition;
-	}
+        footerIntegerVisibility = new IntegerVisibility();
 
-	@DependsOnStateOf("checkedItemPosition")
-	public String getDescriptionOfSelectedItem()
-	{
-		return ""+checkedItemPosition;
-	}
-	
-	public SparseBooleanArray getCheckedItemPositions()
-	{
-		return checkedItemPositions;
-	}
+        checkedItemPositions = new SparseBooleanArray();
+        checkedItemPositions.append(0, true);
+        checkedItemPosition = 0;
+    }
 
-	public void setCheckedItemPositions(SparseBooleanArray checkedItemPositions)
-	{
-		this.checkedItemPositions = checkedItemPositions;
-	}
+    @ItemPresentationModel(value = StringItemPresentationModel.class)
+    public List<String> getStrings() {
+        return SampleStrings.getSample();
+    }
 
-	@DependsOnStateOf("checkedItemPositions")
-	public String getDescriptionOfSelectedItems()
-	{
-		return Strings.toString(checkedItemPositions);
-	}
+    public boolean getHeaderBooleanVisibility() {
+        return headerBooleanVisibility.getValue();
+    }
+
+    public void changeHeaderVisibility() {
+        headerBooleanVisibility.nextState();
+        changeSupport.firePropertyChange(HEADER_BOOLEAN_VISIBILITY);
+    }
+
+    @DependsOnStateOf(HEADER_BOOLEAN_VISIBILITY)
+    public String getHeaderBooleanVisibilityDescription() {
+        return "Header " + headerBooleanVisibility.describe("visible", "invisible");
+    }
+
+    public SampleStringsFooter getFooter() {
+        return SampleStringsFooter.getInstance();
+    }
+
+    public int getFooterIntegerVisibility() {
+        return footerIntegerVisibility.getValue();
+    }
+
+    public void changeFooterVisibility() {
+        footerIntegerVisibility.nextState();
+        changeSupport.firePropertyChange(FOOTER_INTEGER_VISIBILITY);
+    }
+
+    @DependsOnStateOf(FOOTER_INTEGER_VISIBILITY)
+    public String getFooterIntegerVisibilityDescription() {
+        return "Footer " + footerIntegerVisibility.describe("visible", "invisible", "gone");
+    }
+
+    public int getCheckedItemPosition() {
+        return checkedItemPosition;
+    }
+
+    public void setCheckedItemPosition(int checkedItemPosition) {
+        this.checkedItemPosition = checkedItemPosition;
+    }
+
+    @DependsOnStateOf("checkedItemPosition")
+    public String getDescriptionOfSelectedItem() {
+        return "" + checkedItemPosition;
+    }
+
+    public SparseBooleanArray getCheckedItemPositions() {
+        return checkedItemPositions;
+    }
+
+    public void setCheckedItemPositions(SparseBooleanArray checkedItemPositions) {
+        this.checkedItemPositions = checkedItemPositions;
+    }
+
+    @DependsOnStateOf("checkedItemPositions")
+    public String getDescriptionOfSelectedItems() {
+        return Strings.toString(checkedItemPositions);
+    }
+
+    @Override
+    public PresentationModelChangeSupport getPresentationModelChangeSupport() {
+        return changeSupport;
+    }
 }

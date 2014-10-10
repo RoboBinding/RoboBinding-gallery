@@ -40,14 +40,8 @@
         
         <activity android:name=".activity.DynamicBindingActivity" >
         </activity>
- 
-		<activity android:name=".activity.ByInterfaceNoAspectJActivity" >
-        </activity>
-        
-		<activity android:name=".activity.BySubclassNoAspectJActivity" >
-        </activity>
-        
-		<activity android:name=".activity.ListFragmentDemoActivity" >
+
+        <activity android:name=".activity.ListFragmentDemoActivity" >
         </activity>
         
 		<activity android:name=".activity.ViewPagerActivity" >

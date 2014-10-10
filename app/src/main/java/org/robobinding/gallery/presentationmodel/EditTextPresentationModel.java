@@ -1,24 +1,22 @@
 package org.robobinding.gallery.presentationmodel;
 
-import org.robobinding.aspects.PresentationModel;
 
-
+import org.robobinding.annotation.PresentationModel;
 
 /**
- *
- * @since 1.0
- * @version $Revision: 1.0 $
  * @author Cheng Wei
+ * @version $Revision: 1.0 $
+ * @since 1.0
  */
 @PresentationModel
 public class EditTextPresentationModel {
     private String text;
-    
+
     public String getText() {
-	return text;
+        return text;
     }
-    
+
     public void setText(String text) {
-	this.text = text;
+        this.text = text;
     }
 }
