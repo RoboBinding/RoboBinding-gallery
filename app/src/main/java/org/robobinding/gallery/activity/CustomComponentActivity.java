@@ -29,15 +29,15 @@ public class CustomComponentActivity extends Activity {
     }
     
     private void initializeContentView(int layoutId, Object presentationModel) {
-	ViewBinder viewBinder = createViewBinder();
-	View rootView = viewBinder.inflateAndBind(layoutId, presentationModel);
-	setContentView(rootView);
+        ViewBinder viewBinder = createViewBinder();
+        View rootView = viewBinder.inflateAndBind(layoutId, presentationModel);
+        setContentView(rootView);
     }
     
     private ViewBinder createViewBinder() {
-	BinderFactory binderFactory = new BinderFactoryBuilder()
-		.mapView(TitleDescriptionBar.class, new TitleDescriptionBarBinding())
-		.build();
-	return binderFactory.createViewBinder(this);
+        BinderFactory binderFactory = new BinderFactoryBuilder()
+                .add(new TitleDescriptionBarBinding().forView(TitleDescriptionBar.class))
+                .build();
+        return binderFactory.createViewBinder(this);
     }
 }

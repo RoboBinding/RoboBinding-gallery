@@ -2,9 +2,15 @@ package org.robobinding.gallery.activity;
 
 import org.robobinding.binder.BinderFactory;
 import org.robobinding.binder.BinderFactoryBuilder;
+import org.robobinding.gallery.model.customcomponent.TitleDescriptionBar;
+import org.robobinding.gallery.model.customcomponent.TitleDescriptionBarBinding;
 import org.robobinding.gallery.model.typedcursor.DatabaseHelper;
+import org.robobinding.widget.menuitemgroup.MenuItemGroup;
 
 import android.app.Application;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 /**
  *
@@ -21,7 +27,11 @@ public class GalleryApp extends Application {
         super.onCreate();
         
         databaseHelper = new DatabaseHelper(this);
-        reusableBinderFactory = new BinderFactoryBuilder().build();
+        reusableBinderFactory = new BinderFactoryBuilder()
+                .add(new ViewBindingForView().extend(View.class))
+                .add(new MenuItemBinding().extend(MenuItem.class))
+                .add(new MenuItemGroupBinding().forView(MenuItemGroup.class))
+                .build();
     }
 
     public BinderFactory getReusableBinderFactory() {

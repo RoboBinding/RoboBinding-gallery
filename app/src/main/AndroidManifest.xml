@@ -37,9 +37,6 @@
 
         <activity android:name=".activity.TypedCursorActivity" >
         </activity>
-        
-        <activity android:name=".activity.DynamicBindingActivity" >
-        </activity>
 
         <activity android:name=".activity.ListFragmentDemoActivity" >
         </activity>
