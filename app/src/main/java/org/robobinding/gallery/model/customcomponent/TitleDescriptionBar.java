@@ -20,31 +20,31 @@ public class TitleDescriptionBar extends LinearLayout {
     private TextView description;
 
     public TitleDescriptionBar(Context context, AttributeSet attrs) {
-	this(context, attrs, R.layout.title_description_bar);
+		this(context, attrs, R.layout.title_description_bar);
     }
 
     protected TitleDescriptionBar(Context context, AttributeSet attrs, int layoutId) {
-	super(context, attrs);
+		super(context, attrs);
 
-	LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	inflater.inflate(layoutId, this);
-	title = (TextView) findViewById(R.id.title);
-	description = (TextView) findViewById(R.id.description);
+		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		inflater.inflate(layoutId, this);
+		title = (TextView) findViewById(R.id.title);
+		description = (TextView) findViewById(R.id.description);
 
-	TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TitleDescriptionBar);
-	String titleText = a.getString(R.styleable.TitleDescriptionBar_title);
-	String descriptionText = a.getString(R.styleable.TitleDescriptionBar_description);
-	a.recycle();
+		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TitleDescriptionBar);
+		String titleText = a.getString(R.styleable.TitleDescriptionBar_title);
+		String descriptionText = a.getString(R.styleable.TitleDescriptionBar_description);
+		a.recycle();
 
-	setTitle(titleText);
-	setDescription(descriptionText);
+		setTitle(titleText);
+		setDescription(descriptionText);
     }
 
     public void setTitle(CharSequence titleText) {
-	title.setText(titleText);
+		title.setText(titleText);
     }
 
     public void setDescription(CharSequence descriptionText) {
-	description.setText(descriptionText);
+		description.setText(descriptionText);
     }
 }

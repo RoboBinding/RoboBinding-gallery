@@ -28,7 +28,6 @@ public class GalleryActivity extends AbstractActivity {
 	demoActivityMappings.put("ListView", ListViewActivity.class);
 	demoActivityMappings.put("Custom Component", CustomComponentActivity.class);
 	demoActivityMappings.put("TypedCursor", TypedCursorActivity.class);
-	demoActivityMappings.put("Dynamic Binding", DynamicBindingActivity.class);
 	demoActivityMappings.put("Fragment & ViewPager", ListFragmentDemoActivity.class);
 	demoActivityMappings.put("Options Menu", OptionsMenuActivity.class);
 	demoActivityMappings.put("Context Menu", ContextMenuDemoActivity.class);
