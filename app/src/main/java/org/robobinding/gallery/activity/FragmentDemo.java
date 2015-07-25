@@ -40,11 +40,11 @@ public class FragmentDemo extends AbstractFragment {
     }
     
     public static FragmentDemo newInstance(int productIndex) {
-	Bundle args = new Bundle();
-	args.putInt(EXTRA_PRODUCT_INDEX, productIndex);
-	FragmentDemo fragment = new FragmentDemo();
-	fragment.setArguments(args);
-	return fragment;
+        Bundle args = new Bundle();
+        args.putInt(EXTRA_PRODUCT_INDEX, productIndex);
+        FragmentDemo fragment = new FragmentDemo();
+        fragment.setArguments(args);
+        return fragment;
     }
     
     private FragmentDemo() {

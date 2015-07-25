@@ -20,8 +20,8 @@ apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'org.robobinding.android-aspectj'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
 	
 	defaultConfig {
 		minSdkVersion 8
@@ -58,6 +58,10 @@ android {
 }
 
 repositories {
+    maven() {
+        name 'RoboBinding Framework Maven Repository'
+        url "file://D:/git/RoboBinding/framework/mavenRepo"
+    }
 	mavenCentral()
 	maven() {
 		name 'SonaType snapshot repository'
@@ -84,7 +88,7 @@ dependencies {
 	compile ("org.robobinding:robobinding:${robobindingVersion}:with-aop") {
         exclude group: 'com.google.guava'
     }
-    compile 'com.android.support:appcompat-v7:20.0.0'
+    compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'com.google.guava:guava:16.0'
 
     //aspectPath fileTree(dir: 'libs', include: '*.jar')
