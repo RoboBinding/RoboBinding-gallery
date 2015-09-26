@@ -9,6 +9,7 @@ import org.robobinding.gallery.invocationlog.PublicMethodInvocationLog;
 import org.robobinding.gallery.model.adapterview.SampleStringType;
 import org.robobinding.gallery.model.adapterview.SampleStrings;
 import org.robobinding.gallery.model.adapterview.StringItemLayout;
+import org.robobinding.itempresentationmodel.ViewTypeSelectionContext;
 
 /**
  * @author Cheng Wei
@@ -79,5 +80,38 @@ public class AdapterViewPresentationModel implements PublicMethodInvocationLog {
 
     private StringItemLayout getSelectedItemLayout() {
         return StringItemLayout.valueOf(selectedItemLayoutIndex);
+    }
+
+    @ItemPresentationModel(value = StringItemPresentationModel.class,
+            factoryMethod = "createDifferentStringItemPresentationModel",
+            viewTypeSelector = "selectViewType")
+    public List<String> getDifferentLookStrings() {
+        return SampleStrings.getSample();
+    }
+
+    public StringItemPresentationModel createDifferentStringItemPresentationModel(int viewType) {
+        if(viewType == 0) {
+            return new StringItemPresentationModel1();
+        } else {
+            return new StringItemPresentationModel2();
+        }
+    }
+
+    public int selectViewType(ViewTypeSelectionContext<String> context) {
+        return context.getPosition() % context.getViewTypeCount();
+    }
+
+    private static class StringItemPresentationModel1 extends StringItemPresentationModel {
+        @Override
+        public String getValue() {
+            return super.getValue() + " - from StringItemPresentationModel1";
+        }
+    }
+
+    private static class StringItemPresentationModel2 extends StringItemPresentationModel {
+        @Override
+        public String getValue() {
+            return super.getValue() + " - from StringItemPresentationModel2";
+        }
     }
 }

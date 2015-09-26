@@ -22,6 +22,8 @@ public class SampleStrings
 		List<String> strings = Lists.newArrayList();
 		strings.add(sampleName+" text1");
 		strings.add(sampleName+" text2");
+		strings.add(sampleName+" text3");
+		strings.add(sampleName+" text4");
 		return strings;
 	}
 

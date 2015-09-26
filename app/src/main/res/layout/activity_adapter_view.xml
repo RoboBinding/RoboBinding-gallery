@@ -66,4 +66,25 @@
 	  		bind:source="{itemLayouts}"
 	  		bind:selectedItemPosition="${selectedItemLayoutIndex}"/>
     </LinearLayout>
+
+	<View android:layout_width="fill_parent" android:layout_height="2dp" android:background="#FF0606"/>
+
+	<!-- For multiple itemLayouts feature -->
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Multiple itemLayouts feature:"
+		android:textStyle="bold|italic"/>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<ListView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			bind:itemLayout="[@layout/string_item_layout1, @layout/string_item_layout2]"
+			bind:source="{differentLookStrings}"/>
+	</LinearLayout>
 </LinearLayout>

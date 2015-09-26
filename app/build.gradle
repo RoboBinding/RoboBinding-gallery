@@ -62,20 +62,15 @@ repositories {
         name 'RoboBinding Framework Maven Repository'
         url "file://D:/git/RoboBinding/framework/mavenRepo"
     }
-	mavenCentral()
-	maven() {
-		name 'SonaType snapshot repository'
-		url 'https://oss.sonatype.org/content/repositories/snapshots'
-	}
-	/*
-    maven() {
-        name 'RoboBinding Framework Maven Repository'
-        url "file://D:/git/RoboBinding/framework/mavenRepo"
-    }
     maven() {
         name 'RoboBinding CodeGen Maven Repository'
         url "file://D:/git/RoboBinding/codegen/mavenRepo"
-    }*/
+    }
+	mavenCentral()
+	maven() {
+        name 'SonaType snapshot repository'
+        url 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
 }
 
 ext {

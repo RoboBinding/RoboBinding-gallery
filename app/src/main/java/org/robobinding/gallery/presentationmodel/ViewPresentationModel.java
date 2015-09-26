@@ -22,6 +22,8 @@ public class ViewPresentationModel implements HasPresentationModelChangeSupport 
     private PresentationModelChangeSupport changeSupport;
     private CircularIntegers integerVisibilityRotation;
     private Map<Integer, String> integerVisibilityDescriptions;
+    private boolean checked;
+    private int numCheckedChanges;
 
     public ViewPresentationModel() {
         changeSupport = new PresentationModelChangeSupport(this);
@@ -31,6 +33,9 @@ public class ViewPresentationModel implements HasPresentationModelChangeSupport 
         integerVisibilityDescriptions.put(View.VISIBLE, "Visible");
         integerVisibilityDescriptions.put(View.INVISIBLE, "Invisible");
         integerVisibilityDescriptions.put(View.GONE, "Gone");
+
+        checked = false;
+        numCheckedChanges  = 0;
     }
 
     public int getIntegerVisibility() {
@@ -45,6 +50,27 @@ public class ViewPresentationModel implements HasPresentationModelChangeSupport 
         integerVisibilityRotation.next();
         changeSupport.firePropertyChange("integerVisibilityState");
         changeSupport.firePropertyChange("integerVisibility");
+    }
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
+
+    public void onCheckedChange() {
+        numCheckedChanges++;
+        changeSupport.firePropertyChange("checkedChangeDisplay");
+    }
+
+    public void changeChecked() {
+        setChecked(!checked);
+    }
+
+    public String getCheckedChangeDisplay() {
+        return "Change Checked: "+ numCheckedChanges;
     }
 
     @Override

@@ -23,6 +23,18 @@
             android:layout_height="wrap_content"
             bind:text="{integerVisibilityState}"
             bind:onClick="integerVisibilityStateNext"/>
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            bind:checked="{checked}"
+            bind:onCheckedChange="onCheckedChange"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            bind:text="{checkedChangeDisplay}"
+            bind:onClick="changeChecked"/>
     </LinearLayout>
 
 </LinearLayout>
