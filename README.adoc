@@ -1,3 +1,5 @@
+**Note:** please issue the following in command line - 'gradlew build --refresh-dependencies' in Windows or './gradlew build --refresh-dependencies' in Linux or Mac to force update to the latest RoboBinding snapshot when required.
+
 An android app to showcase the usage of https://github.com/RoboBinding/RoboBinding[RoboBinding] framework.
 
 The project can be directly imported into Android Studio.
