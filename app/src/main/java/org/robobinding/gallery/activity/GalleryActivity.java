@@ -26,6 +26,7 @@ public class GalleryActivity extends AbstractActivity {
 	demoActivityMappings.put("EditText", EditTextActivity.class);
 	demoActivityMappings.put("AdapterView", AdapterViewActivity.class);
 	demoActivityMappings.put("ListView", ListViewActivity.class);
+	demoActivityMappings.put("RecyclerView", RecyclerViewActivity.class);
 	demoActivityMappings.put("Custom Component", CustomComponentActivity.class);
 	demoActivityMappings.put("TypedCursor", TypedCursorActivity.class);
 	demoActivityMappings.put("Fragment & ViewPager", ListFragmentDemoActivity.class);

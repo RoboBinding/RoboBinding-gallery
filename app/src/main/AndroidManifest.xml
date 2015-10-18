@@ -29,6 +29,9 @@
         <activity android:name=".activity.ListViewActivity" >
         </activity>
 
+        <activity android:name=".activity.RecyclerViewActivity" >
+        </activity>
+
         <activity android:name=".activity.AdapterViewActivity" >
         </activity>
 

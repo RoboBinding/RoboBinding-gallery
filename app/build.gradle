@@ -66,6 +66,10 @@ repositories {
         name 'RoboBinding CodeGen Maven Repository'
         url "file://D:/git/RoboBinding/codegen/mavenRepo"
     }
+    maven() {
+        name 'RoboBinding CodeGen Maven Repository'
+        url "file://D:/git/RoboBinding/extras/mavenRepo"
+    }
 	mavenCentral()
 	maven() {
         name 'SonaType snapshot repository'
@@ -83,7 +87,9 @@ dependencies {
 	compile ("org.robobinding:robobinding:${robobindingVersion}:with-aop") {
         exclude group: 'com.google.guava'
     }
+    compile "org.robobinding:extras:${robobindingVersion}"
     compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.android.support:recyclerview-v7:22.1.1'
     compile 'com.google.guava:guava:16.0'
 
     //aspectPath fileTree(dir: 'libs', include: '*.jar')
