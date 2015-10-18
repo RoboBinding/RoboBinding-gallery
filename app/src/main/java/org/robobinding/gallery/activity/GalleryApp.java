@@ -6,7 +6,7 @@ import org.robobinding.customviewbinding.CustomViewBinding;
 import org.robobinding.gallery.model.customcomponent.TitleDescriptionBar;
 import org.robobinding.gallery.model.customcomponent.TitleDescriptionBarBinding;
 import org.robobinding.gallery.model.typedcursor.DatabaseHelper;
-import org.robobinding.supportwidget.recyclerView.RecyclerViewBinding;
+import org.robobinding.supportwidget.recyclerview.RecyclerViewBinding;
 import org.robobinding.widget.menuitemgroup.MenuItemGroup;
 
 import android.app.Application;
