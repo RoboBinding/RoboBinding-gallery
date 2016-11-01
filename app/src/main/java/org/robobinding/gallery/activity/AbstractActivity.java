@@ -28,7 +28,7 @@ public abstract class AbstractActivity extends ActionBarActivity {
 	return binderFactory.createViewBinder(this);
     }
 
-    private BinderFactory getReusableBinderFactory() {
+    protected BinderFactory getReusableBinderFactory() {
 	BinderFactory binderFactory = getGalleryApp().getReusableBinderFactory();
 	return binderFactory;
     }

@@ -1,5 +1,9 @@
 buildscript {
 	repositories {
+        maven() {
+            name 'Local RoboBinding AspectJPlugin Maven Repository'
+            url "file://D:/git/RoboBinding-aspectj-plugin/mavenRepo"
+        }
 		mavenCentral()
 		maven() {
 			name 'RoboBinding AspectJPlugin Maven Repository'
@@ -9,9 +13,9 @@ buildscript {
 	}
 
 	dependencies {
-		classpath 'com.android.tools.build:gradle:1.+'
+		classpath 'com.android.tools.build:gradle:2.2.1'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.+'
-		classpath 'org.robobinding:aspectj-plugin:0.8.4'
+		classpath 'org.robobinding:aspectj-plugin:0.8.5'
 	}
 }
 
@@ -67,7 +71,7 @@ repositories {
         url "file://D:/git/RoboBinding/codegen/mavenRepo"
     }
     maven() {
-        name 'RoboBinding CodeGen Maven Repository'
+        name 'RoboBinding Extras Maven Repository'
         url "file://D:/git/RoboBinding/extras/mavenRepo"
     }
 	mavenCentral()
@@ -78,8 +82,8 @@ repositories {
 }
 
 ext {
-	robobindingVersion = 'latest.integration'
-    //robobindingVersion = '0.8.8'
+	//robobindingVersion = 'latest.integration'
+    robobindingVersion = '0.8.14'
 }
 
 dependencies {

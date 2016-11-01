@@ -1,5 +1,7 @@
 package org.robobinding.gallery.presentationmodel;
 
+import android.util.Log;
+
 import org.robobinding.itempresentationmodel.ItemContext;
 import org.robobinding.itempresentationmodel.ItemPresentationModel;
 
@@ -13,10 +15,12 @@ public class StringItemPresentationModel implements ItemPresentationModel<String
 
     @Override
     public void updateData(String bean, ItemContext itemContext) {
+        Log.d(StringItemPresentationModel.class.getSimpleName(), "in updateData");
         value = bean;
     }
 
     public String getValue() {
+        Log.d(StringItemPresentationModel.class.getSimpleName(), "in getValue");
         return value;
     }
 }

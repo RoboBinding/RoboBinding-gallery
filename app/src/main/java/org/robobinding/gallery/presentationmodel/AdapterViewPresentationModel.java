@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.robobinding.annotation.DependsOnStateOf;
 import org.robobinding.annotation.ItemPresentationModel;
+import org.robobinding.annotation.PreInitializingViews;
 import org.robobinding.annotation.PresentationModel;
 import org.robobinding.gallery.invocationlog.PublicMethodInvocationLog;
 import org.robobinding.gallery.model.adapterview.SampleStringType;
@@ -99,6 +100,12 @@ public class AdapterViewPresentationModel implements PublicMethodInvocationLog {
 
     public int selectViewType(ViewTypeSelectionContext<String> context) {
         return context.getPosition() % context.getViewTypeCount();
+    }
+
+
+    @ItemPresentationModel(value = StringItemPresentationModel.class, preInitializingViews = PreInitializingViews.DEFAULT)
+    public List<String> getDefaultPreInitializingViewsStrings() {
+        return SampleStrings.getSample();
     }
 
     private static class StringItemPresentationModel1 extends StringItemPresentationModel {

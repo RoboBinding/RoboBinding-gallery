@@ -1,9 +1,12 @@
 package org.robobinding.gallery.activity;
 
+import org.robobinding.ViewBinder;
+import org.robobinding.binder.BinderFactory;
 import org.robobinding.gallery.R;
 import org.robobinding.gallery.presentationmodel.AdapterViewPresentationModel;
 
 import android.os.Bundle;
+import android.view.View;
 
 /**
  * 
@@ -19,6 +22,8 @@ public class AdapterViewActivity extends AbstractActivity {
 	super.onCreate(savedInstanceState);
 
 	presentationModel = new AdapterViewPresentationModel();
-	initializeContentView(R.layout.activity_adapter_view, presentationModel);
+        ViewBinder viewBinder = getReusableBinderFactory().createViewBinder(this, false);
+        View rootView = viewBinder.inflateAndBind(R.layout.activity_adapter_view, presentationModel);
+	setContentView(rootView);
     }
 }

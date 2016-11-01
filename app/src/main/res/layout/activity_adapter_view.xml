@@ -87,4 +87,25 @@
 			bind:itemLayout="[@layout/string_item_layout1, @layout/string_item_layout2]"
 			bind:source="{differentLookStrings}"/>
 	</LinearLayout>
+
+	<View android:layout_width="fill_parent" android:layout_height="2dp" android:background="#FF0606"/>
+	<!-- For default preInitializingViews feature -->
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Default pre-initializing views feature:"
+		android:textStyle="bold|italic"/>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<ListView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			bind:itemLayout="@android:layout/simple_list_item_1"
+			bind:itemMapping="[text1.text:{value}]"
+			bind:source="{defaultPreInitializingViewsStrings}"/>
+	</LinearLayout>
 </LinearLayout>
